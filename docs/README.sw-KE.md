@@ -21,6 +21,12 @@ Ikiwa chini ya leseni ya [**Apache License 2.0**](https://www.apache.org/license
 
 ---
 
+> [!TIP]
+> **Je, unaunda programu imara kwa ajili ya jamii yako?** <br>
+> *Fanya fork ya hifadhi hii, rudufu faili moja ndani ya `locales/` ili kuongeza lugha yako, na urekebishe orodha ya bidhaa kulingana na eneo lako. Mfumo huu unafanya kazi 100% bila mtandao kwenye kifaa chochote kupitia itifaki ya `file://` (hakuna intaneti inayohitajika). Chapisha Mwongozo wa Uwandani wenye majedwali yaliyokokotolewa kabla ya dharura kutokea: kwa njia hiyo, hata umeme ukikatika kabisa, tayari utakuwa na nakala ya karatasi iliyo tayari kutumika.*
+
+---
+
 ## Yaliyomo
 
 1. [Misingi Mikuu ya Usanifu](#1-misingi-mikuu-ya-usanifu)
@@ -158,7 +164,7 @@ Kila kipengee katika `data/items_core.js` au kinachosajiliwa kupitia `BarterEngi
 ### 5.1. Muundo wa Hifadhi (Repository Architecture)
 
 ```text
-library/
+barterscore/
 ├── .gitattributes                      # Inalazimisha LF kwa .sh, CRLF kwa .bat na sheria za GitHub Linguist
 ├── .gitignore                          # Kinga dhidi ya faili za muda za mfumo wa uendeshaji na IDE
 ├── LICENSE                             # Leseni rasmi ya Apache License 2.0
@@ -168,7 +174,7 @@ library/
 ├── CONTRIBUTING.md                     # Sheria ya Inbound=Outbound na umiliki wa 100% wa ufadhili
 ├── package.json                        # Orodha ya kifurushi cha npm kisicho na utegemezi
 ├── server.js                           # Seva asilia ya HTTP ya Node.js kwa ukaguzi wa ndani
-├── index.js                            # Kiingilio kikuu cha UMD cha kifurushi (@barterscoreengine/library)
+├── index.js                            # Kiingilio kikuu cha UMD cha kifurushi (@barterscoreengine/barterscore)
 ├── index.d.ts                          # Matangazo rasmi ya aina za TypeScript kwa IDE na miradi ya nje
 ├── start_windows.bat                   # Kianzishaji cha Bofya-1 cha Windows (itifaki ya file://)
 ├── start_unix.sh                       # Kianzishaji cha Bofya-1 cha POSIX (Linux, macOS, BSD)
@@ -214,7 +220,7 @@ library/
 ## 6. Mwongozo wa Kuunganisha kwa Wasanidi Programu na Marejeleo ya API
 
 ```javascript
-import { BarterEngine, Validator, ItemsCore, Locales, AuditSources } from '@barterscoreengine/library';
+import { BarterEngine, Validator, ItemsCore, Locales, AuditSources } from '@barterscoreengine/barterscore';
 
 const engine = new BarterEngine({
   items: ItemsCore,
@@ -238,4 +244,4 @@ Tumia `BarterEngine.registerCustomItems([item], { mode: 'merge', strict: true })
 
 ## 8. Leseni na Utawala
 
-Mradi huu unasambazwa chini ya leseni ya [**Apache License 2.0**](../LICENSE). Kwa mujibu wa Kifungu cha 4(d) cha Apache License 2.0, nakala zote au kazi zinazotokana na mradi huu lazima zihifadhi faili ya [`NOTICE`](../NOTICE) ikimtaja mwanzilishi na mtunzaji mkuu: **Erisson Marques** ([`https://github.com/erissontech`](https://github.com/erissontech)) na hifadhi rasmi ([`https://github.com/barterscoreengine/library`](https://github.com/barterscoreengine/library)).
+Mradi huu unasambazwa chini ya leseni ya [**Apache License 2.0**](../LICENSE). Kwa mujibu wa Kifungu cha 4(d) cha Apache License 2.0, nakala zote au kazi zinazotokana na mradi huu lazima zihifadhi faili ya [`NOTICE`](../NOTICE) ikimtaja mwanzilishi na mtunzaji mkuu: **Erisson Marques** ([`https://github.com/erissontech`](https://github.com/erissontech)) na hifadhi rasmi ([`https://github.com/barterscoreengine/barterscore`](https://github.com/barterscoreengine/barterscore)).

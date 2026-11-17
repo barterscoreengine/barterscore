@@ -21,6 +21,12 @@
 
 ---
 
+> [!TIP]
+> **Создаете автономное решение для своего местного сообщества?** <br>
+> *Сделайте форк этого репозитория, продублируйте файл в папке `locales/`, чтобы добавить свой язык, и адаптируйте каталог данных под свой регион. Ядро работает на 100% офлайн на любом устройстве по протоколу `file://` (интернет не требуется). Распечатайте Полевое руководство с предварительно рассчитанными таблицами до наступления кризиса: так, в случае полного отключения электросети, у вас уже будет готовая бумажная копия для работы вручную.*
+
+---
+
 ## Содержание
 
 1. [Фундаментальные архитектурные принципы](#1-фундаментальные-архитектурные-принципы)
@@ -187,7 +193,7 @@ Q_B_точное = ( ScoreFinal(A) × Q_A ) / ScoreFinal(B)
 ### 5.1. Архитектура репозитория
 
 ```text
-library/
+barterscore/
 ├── .gitattributes                      # Принудительно задает LF для .sh, CRLF для .bat и правила GitHub Linguist
 ├── .gitignore                          # Защита от кэшей ОС, состояния IDE и lock-файлов
 ├── LICENSE                             # Официальная лицензия Apache License 2.0
@@ -197,7 +203,7 @@ library/
 ├── CONTRIBUTING.md                     # Правило Inbound=Outbound и 100% принадлежность спонсорской поддержки
 ├── package.json                        # Манифест npm-пакета без зависимостей и метаданные
 ├── server.js                           # Нативный HTTP-сервер Node.js (ноль зависимостей) для локального обзора
-├── index.js                            # Единая корневая UMD-точка входа пакета (@barterscoreengine/library)
+├── index.js                            # Единая корневая UMD-точка входа пакета (@barterscoreengine/barterscore)
 ├── index.d.ts                          # Официальные декларации типов TypeScript для IDE и внешних проектов
 ├── start_windows.bat                   # Лаунчер Windows в 1 клик (протокол file://)
 ├── start_unix.sh                       # POSIX-лаунчер в 1 клик (Linux, macOS, BSD)
@@ -272,16 +278,16 @@ library/
 ```
 
 ### 6.2. Сценарий Б: ES Modules (`import`) и Node.js / CommonJS (`require`)
-Установите пакет напрямую из официального репозитория GitHub ([`https://github.com/barterscoreengine/library`](https://github.com/barterscoreengine/library)) или импортируйте локальные файлы без транспиляции:
+Установите пакет напрямую из официального репозитория GitHub ([`https://github.com/barterscoreengine/barterscore`](https://github.com/barterscoreengine/barterscore)) или импортируйте локальные файлы без транспиляции:
 
 ```bash
-npm install github:barterscoreengine/library
-# Или для автономного использования: git clone https://github.com/barterscoreengine/library.git
+npm install github:barterscoreengine/barterscore
+# Или для автономного использования: git clone https://github.com/barterscoreengine/barterscore.git
 ```
 
 ```javascript
-// 1. ES Modules через пакет (@barterscoreengine/library) — React, Vue, Vite, Next.js, TypeScript, Node.js
-import { BarterEngine, Validator, ItemsCore, Locales, AuditSources } from '@barterscoreengine/library';
+// 1. ES Modules через пакет (@barterscoreengine/barterscore) — React, Vue, Vite, Next.js, TypeScript, Node.js
+import { BarterEngine, Validator, ItemsCore, Locales, AuditSources } from '@barterscoreengine/barterscore';
 
 const engine = new BarterEngine({
   items: ItemsCore,

@@ -21,6 +21,12 @@
 
 ---
 
+> [!TIP]
+> **هل تقوم ببناء تطبيق مرن ومستقل لمجتمعك المحلي؟** <br>
+> *انسخ هذا المستودع (Fork)، وكرر أحد الملفات داخل المجلد `locales/` لإضافة لغتك، وخصص قاعدة البيانات لتناسب منطقتك. يعمل المحرك بنسبة 100% دون اتصال بالإنترنت على أي جهاز عبر البروتوكول `file://` (لا يتطلب إنترنت). اطبع الدليل الميداني المزود بالجداول المحسوبة مسبقاً قبل وقوع أي أزمة؛ وبذلك، إذا انقطعت شبكة الكهرباء بالكامل، ستكون لديك نسخة ورقية جاهزة للعمل فوراً.*
+
+---
+
 ## جدول المحتويات
 
 1. [المبادئ المعمارية الأساسية](#1-المبادئ-المعمارية-الأساسية)
@@ -158,7 +164,7 @@ Q_B_exact = ( ScoreFinal(A) × Q_A ) / ScoreFinal(B)
 ### 5.1. البنية المعمارية للمستودع
 
 ```text
-library/
+barterscore/
 ├── .gitattributes                      # يفرض LF لملفات .sh وCRLF لملفات .bat وقواعد GitHub Linguist
 ├── .gitignore                          # يحمي المستودع من ملفات التخزين المؤقت لنظام التشغيل وبيئات التطوير
 ├── LICENSE                             # رخصة Apache License 2.0 الرسمية
@@ -168,7 +174,7 @@ library/
 ├── CONTRIBUTING.md                     # قاعدة Inbound=Outbound وملكية الرعاية بنسبة 100% للمطور الرئيسي
 ├── package.json                        # بيان حزمة npm عديمة الاعتماديات والبيانات الوصفية
 ├── server.js                           # خادم HTTP محلي مدمج بلغة Node.js (صفر اعتماديات) للمعاينة المحلية
-├── index.js                            # نقطة الدخول الموحدة UMD للحزمة (@barterscoreengine/library)
+├── index.js                            # نقطة الدخول الموحدة UMD للحزمة (@barterscoreengine/barterscore)
 ├── index.d.ts                          # تعريفات أنواع TypeScript الرسمية لبيئات التطوير والمشاريع الخارجية
 ├── start_windows.bat                   # مشغل Windows بنقرة واحدة (بروتوكول file://)
 ├── start_unix.sh                       # مشغل POSIX بنقرة واحدة (Linux, macOS, BSD)
@@ -214,7 +220,7 @@ library/
 ## 6. دليل تكامل المطورين ومرجع واجهة البرمجة (API)
 
 ```javascript
-import { BarterEngine, Validator, ItemsCore, Locales, AuditSources } from '@barterscoreengine/library';
+import { BarterEngine, Validator, ItemsCore, Locales, AuditSources } from '@barterscoreengine/barterscore';
 
 const engine = new BarterEngine({
   items: ItemsCore,
@@ -238,4 +244,4 @@ console.log('النقاط النهائية:', itemScore.final_score); // 16458.3
 
 ## 8. الترخيص والحوكمة
 
-يُوزّع هذا المشروع بموجب رخصة [**Apache License 2.0**](../LICENSE). وعملاً بالمادة 4(d) من رخصة Apache License 2.0، يجب أن تحتفظ جميع النسخ أو الأعمال المشتقة بملف [`NOTICE`](../NOTICE) المتضمن إسناد المؤلف والمطور الرئيسي: **Erisson Marques** ([`https://github.com/erissontech`](https://github.com/erissontech)) والرابط الرسمي للمستودع ([`https://github.com/barterscoreengine/library`](https://github.com/barterscoreengine/library)).
+يُوزّع هذا المشروع بموجب رخصة [**Apache License 2.0**](../LICENSE). وعملاً بالمادة 4(d) من رخصة Apache License 2.0، يجب أن تحتفظ جميع النسخ أو الأعمال المشتقة بملف [`NOTICE`](../NOTICE) المتضمن إسناد المؤلف والمطور الرئيسي: **Erisson Marques** ([`https://github.com/erissontech`](https://github.com/erissontech)) والرابط الرسمي للمستودع ([`https://github.com/barterscoreengine/barterscore`](https://github.com/barterscoreengine/barterscore)).

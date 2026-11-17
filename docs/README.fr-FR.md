@@ -21,6 +21,12 @@ Sous licence [**Apache License 2.0**](https://www.apache.org/licenses/LICENSE-2.
 
 ---
 
+> [!TIP]
+> **Vous développez une application résiliente pour votre communauté locale ?** <br>
+> *Faites un fork de ce dépôt, dupliquez un fichier dans `locales/` pour ajouter votre langue et personnalisez le jeu de données pour votre région. Le moteur fonctionne 100 % hors-ligne sur n’importe quel appareil via le protocole `file://` (sans aucune connexion Internet). Imprimez le Manuel de Terrain avec les tables pré-calculées avant qu’une crise ne survienne : ainsi, en cas de panne totale du réseau électrique, vous disposerez déjà d’un exemplaire analogique prêt à l’emploi sur papier.*
+
+---
+
 ## Sommaire
 
 1. [Principes Architecturaux Fondamentaux](#1-principes-architecturaux-fondamentaux)
@@ -252,7 +258,7 @@ Aucun compilateur, serveur web local ni connexion Internet n’est requis pour l
 ### 5.1. Architecture du Dépôt
 
 ```text
-library/
+barterscore/
 ├── .gitattributes                      # Force LF pour .sh, CRLF pour .bat et règles GitHub Linguist
 ├── .gitignore                          # Protection contre les caches OS, IDE et fichiers lock
 ├── LICENSE                             # Licence officielle Apache License 2.0
@@ -262,7 +268,7 @@ library/
 ├── CONTRIBUTING.md                     # Clause Inbound=Outbound et 100% de titularité des parrainages
 ├── package.json                        # Manifeste de paquet npm sans dépendances et métadonnées
 ├── server.js                           # Serveur HTTP natif Node.js (zéro dépendance) pour usage local
-├── index.js                            # Point d’entrée UMD unifié du paquet (@barterscoreengine/library)
+├── index.js                            # Point d’entrée UMD unifié du paquet (@barterscoreengine/barterscore)
 ├── index.d.ts                          # Déclarations officielles TypeScript pour IDE et projets externes
 ├── start_windows.bat                   # Lanceur Windows en 1 clic (protocole file://)
 ├── start_unix.sh                       # Lanceur POSIX en 1 clic (Linux, macOS, BSD)
@@ -337,16 +343,16 @@ Chargez les fichiers UMD dans l’ordre. Tous les modules s’attachent automati
 ```
 
 ### 6.2. Scénario B : ES Modules (`import`) et Node.js / CommonJS (`require`)
-Installez directement depuis le dépôt officiel sur GitHub ([`https://github.com/barterscoreengine/library`](https://github.com/barterscoreengine/library)) ou importez les fichiers locaux sans transpilation supplémentaire :
+Installez directement depuis le dépôt officiel sur GitHub ([`https://github.com/barterscoreengine/barterscore`](https://github.com/barterscoreengine/barterscore)) ou importez les fichiers locaux sans transpilation supplémentaire :
 
 ```bash
-npm install github:barterscoreengine/library
-# Ou pour un usage local/embarqué : git clone https://github.com/barterscoreengine/library.git
+npm install github:barterscoreengine/barterscore
+# Ou pour un usage local/embarqué : git clone https://github.com/barterscoreengine/barterscore.git
 ```
 
 ```javascript
-// 1. ES Modules via le paquet (@barterscoreengine/library) — React, Vue, Vite, Next.js, TypeScript, Node.js
-import { BarterEngine, Validator, ItemsCore, Locales, AuditSources } from '@barterscoreengine/library';
+// 1. ES Modules via le paquet (@barterscoreengine/barterscore) — React, Vue, Vite, Next.js, TypeScript, Node.js
+import { BarterEngine, Validator, ItemsCore, Locales, AuditSources } from '@barterscoreengine/barterscore';
 
 const engine = new BarterEngine({
   items: ItemsCore,

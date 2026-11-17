@@ -21,6 +21,12 @@
 
 ---
 
+> [!TIP]
+> **正在为您所在的本地社区构建高韧性应急应用？** <br>
+> *欢迎 Fork 本仓库，复制 `locales/` 目录下的任意语言文件以添加您的语言，并根据所在地区定制数据集。本引擎可通过 `file://` 协议在任何设备上 100% 离线运行（无需互联网连接）。请务必在危机发生前提前打印带有预计算比价表的《纸质速查手册》——这样即使电网完全瘫痪，您手中也已备好可随时在纸面上直接运作的实体手册。*
+
+---
+
 ## 目录
 
 1. [核心架构与工程原则](#1-核心架构与工程原则)
@@ -252,7 +258,7 @@ Q_B_精确 = ( ScoreFinal(A) × Q_A ) / ScoreFinal(B)
 ### 5.1. 仓库目录架构
 
 ```text
-library/
+barterscore/
 ├── .gitattributes                      # 强制 .sh 使用 LF 换行、.bat 使用 CRLF 换行及 GitHub Linguist 统计规则
 ├── .gitignore                          # 屏蔽操作系统临时缓存、编辑器状态与 lock 锁定文件
 ├── LICENSE                             # Apache License 2.0 官方开源许可证
@@ -262,7 +268,7 @@ library/
 ├── CONTRIBUTING.md                     # Inbound=Outbound 协议与项目维护者 100% 赞助所有权声明
 ├── package.json                        # 零依赖 npm 包元数据与规范清单
 ├── server.js                           # 原生 Node.js 本地极简 HTTP 服务器（零外部依赖）
-├── index.js                            # 统一根目录 UMD 模块包入口 (@barterscoreengine/library)
+├── index.js                            # 统一根目录 UMD 模块包入口 (@barterscoreengine/barterscore)
 ├── index.d.ts                          # 官方 TypeScript 类型声明文件（支持外部 TS 项目与 IDE 智能补全）
 ├── start_windows.bat                   # Windows 一键离线启动脚本 (file:// 协议)
 ├── start_unix.sh                       # POSIX 跨平台一键启动脚本 (Linux, macOS, BSD)
@@ -338,22 +344,22 @@ library/
 ```
 
 ### 6.2. 场景 B：ES Modules (`import`) 与 Node.js / CommonJS (`require`)
-直接从官方 GitHub 仓库（[`https://github.com/barterscoreengine/library`](https://github.com/barterscoreengine/library)）安装或克隆，无需任何额外转译即可通过 ES Modules（`import`）或 CommonJS（`require`）方式导入：
+直接从官方 GitHub 仓库（[`https://github.com/barterscoreengine/barterscore`](https://github.com/barterscoreengine/barterscore)）安装或克隆，无需任何额外转译即可通过 ES Modules（`import`）或 CommonJS（`require`）方式导入：
 
 ```bash
-npm install github:barterscoreengine/library
-# 或克隆至本地用于离线/嵌入式集成：git clone https://github.com/barterscoreengine/library.git
+npm install github:barterscoreengine/barterscore
+# 或克隆至本地用于离线/嵌入式集成：git clone https://github.com/barterscoreengine/barterscore.git
 ```
 
 ```javascript
-// 1. ES Modules 模块包导入 (@barterscoreengine/library) —— 适用于 React、Vue、Vite、Next.js、TypeScript 与 Node.js
-import { BarterEngine, Validator, ItemsCore, Locales, AuditSources } from '@barterscoreengine/library';
+// 1. ES Modules 模块包导入 (@barterscoreengine/barterscore) —— 适用于 React、Vue、Vite、Next.js、TypeScript 与 Node.js
+import { BarterEngine, Validator, ItemsCore, Locales, AuditSources } from '@barterscoreengine/barterscore';
 
 // 备选方式 A（本地相对路径 ES Modules 导入）：
 // import { BarterEngine } from './src/barter_engine.js';
 
 // 备选方式 B（传统 Node.js / CLI / Electron CommonJS 导入）：
-// const { BarterEngine, Validator, ItemsCore, Locales, AuditSources } = require('@barterscoreengine/library');
+// const { BarterEngine, Validator, ItemsCore, Locales, AuditSources } = require('@barterscoreengine/barterscore');
 
 const engine = new BarterEngine({
   items: ItemsCore,

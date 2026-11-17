@@ -20,6 +20,12 @@ Licensed under the [**Apache License 2.0**](https://www.apache.org/licenses/LICE
 
 ---
 
+> [!TIP]
+> **Are you building a resilient app for your local community?** <br>
+> *Fork this repository, duplicate a file in `locales/` to add your language, and customize the dataset for your region. The engine runs 100% offline on any device via the `file://` protocol (no internet required). Print the Field Manual with the pre-calculated tables before a crisis hits: that way, if the power grid fails completely, you already have an analog copy ready to operate on paper.*
+
+---
+
 ## Table of Contents
 
 1. [Core Architectural Principles](#1-core-architectural-principles)
@@ -251,7 +257,7 @@ No build tools, local web servers, or internet connections are required for offl
 ### 5.1. Repository Architecture
 
 ```text
-library/
+barterscore/
 ├── .gitattributes                      # Enforces LF for .sh, CRLF for .bat, and GitHub Linguist rules
 ├── .gitignore                          # Shields repository from OS caches, editor state, and lockfiles
 ├── LICENSE                             # Official Apache License 2.0
@@ -261,7 +267,7 @@ library/
 ├── CONTRIBUTING.md                     # Inbound=Outbound & 100% Maintainer Sponsorship ownership
 ├── package.json                        # Zero-dependency npm package manifest & metadata
 ├── server.js                           # Native Node.js HTTP server (zero dependencies) for local review
-├── index.js                            # Unified root UMD package entry point (@barterscoreengine/library)
+├── index.js                            # Unified root UMD package entry point (@barterscoreengine/barterscore)
 ├── index.d.ts                          # Official TypeScript declarations for IDE & external TS projects
 ├── start_windows.bat                   # 1-Click Windows launcher (file:// protocol)
 ├── start_unix.sh                       # 1-Click POSIX launcher (Linux, macOS, BSD)
@@ -337,22 +343,22 @@ Load the UMD files in order. All modules attach automatically to `window.BarterC
 ```
 
 ### 6.2. Scenario B: ES Modules (`import`) & Node.js / CommonJS (`require`)
-Install directly from the official GitHub repository ([`https://github.com/barterscoreengine/library`](https://github.com/barterscoreengine/library)) or import the local UMD files without any transpilation step:
+Install directly from the official GitHub repository ([`https://github.com/barterscoreengine/barterscore`](https://github.com/barterscoreengine/barterscore)) or import the local UMD files without any transpilation step:
 
 ```bash
-npm install github:barterscoreengine/library
-# Or for offline/embedded clones: git clone https://github.com/barterscoreengine/library.git
+npm install github:barterscoreengine/barterscore
+# Or for offline/embedded clones: git clone https://github.com/barterscoreengine/barterscore.git
 ```
 
 ```javascript
-// 1. ES Modules via Package (@barterscoreengine/library) — React, Vue, Vite, Next.js, TypeScript, Node.js
-import { BarterEngine, Validator, ItemsCore, Locales, AuditSources } from '@barterscoreengine/library';
+// 1. ES Modules via Package (@barterscoreengine/barterscore) — React, Vue, Vite, Next.js, TypeScript, Node.js
+import { BarterEngine, Validator, ItemsCore, Locales, AuditSources } from '@barterscoreengine/barterscore';
 
 // Alternative ES Modules via local cloned files:
 // import { BarterEngine } from './src/barter_engine.js';
 
 // Alternative CommonJS (Classic Node.js / CLI / Electron):
-// const { BarterEngine, Validator, ItemsCore, Locales, AuditSources } = require('@barterscoreengine/library');
+// const { BarterEngine, Validator, ItemsCore, Locales, AuditSources } = require('@barterscoreengine/barterscore');
 
 const engine = new BarterEngine({
   items: ItemsCore,
