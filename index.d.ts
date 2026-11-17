@@ -1,5 +1,5 @@
 /**
- * @fileoverview Official TypeScript Type Declarations for BarterScore Engine (@barterscoreengine/library)
+ * @fileoverview Official TypeScript Type Declarations for BarterScore Engine (@barterscoreengine/barterscore)
  * @author Erisson Marques (https://github.com/erissontech)
  * @license Apache-2.0
  * @version 1.1.0

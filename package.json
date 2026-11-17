@@ -1,5 +1,5 @@
 {
-  "name": "@barterscoreengine/library",
+  "name": "@barterscoreengine/barterscore",
   "private": true,
   "version": "1.1.0",
   "description": "Deterministic, zero-dependency, offline-first algorithmic engine for physical commodity and essential human service barter valuation in civil collapse scenarios.",
@@ -7,7 +7,7 @@
   "author": "Erisson Marques (https://github.com/erissontech)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/barterscoreengine/library.git"
+    "url": "https://github.com/barterscoreengine/barterscore.git"
   },
   "main": "index.js",
   "types": "index.d.ts",

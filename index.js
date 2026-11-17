@@ -1,12 +1,12 @@
 /**
- * @fileoverview BarterScore Engine - Unified Root Package Entry Point (@barterscoreengine/library)
+ * @fileoverview BarterScore Engine - Unified Root Package Entry Point (@barterscoreengine/barterscore)
  * @author Erisson Marques (https://github.com/erissontech)
  * @license Apache-2.0
  * @version 1.1.0
  *
  * UMD root barrel module exporting BarterEngine, Validator, ItemsCore, AuditSources, and Locales
- * for seamless ES Module (`import { BarterEngine, Validator, ItemsCore, Locales } from '@barterscoreengine/library'`),
- * CommonJS (`const { BarterEngine, Validator, ItemsCore, Locales } = require('@barterscoreengine/library')`),
+ * for seamless ES Module (`import { BarterEngine, Validator, ItemsCore, Locales } from '@barterscoreengine/barterscore'`),
+ * CommonJS (`const { BarterEngine, Validator, ItemsCore, Locales } = require('@barterscoreengine/barterscore')`),
  * and browser `<script>` (`window.BarterCore`) consumption.
  */
 

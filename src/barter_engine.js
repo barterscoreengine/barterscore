@@ -1627,7 +1627,7 @@
    * @param {string} [options.crisisPhase='acute_collapse'] - Initial crisis scenario phase (`'acute_collapse'`, `'economic_reconstruction'`, `'baseline'`).
    * @example
    * // Instance usage (Node.js / CommonJS / Bundlers):
-   * const { BarterEngine } = require('@barterscoreengine/library');
+   * const { BarterEngine } = require('@barterscoreengine/barterscore');
    * const engine = new BarterEngine({
    *   locale: 'en-US',
    *   crisisPhase: 'acute_collapse'
