@@ -229,6 +229,7 @@ Cada objeto en `data/items_core.js` o registrado mediante `BarterEngine.register
 | Propiedad | Tipo | Restricción / Valores Permitidos |
 | :--- | :--- | :--- |
 | `id` | `string` | `snake_case` en minúsculas (`/^[a-z][a-z0-9_]{2,120}$/`), no numérico, sin marcas comerciales |
+| `short_code` | `string` *(opcional)* | Código corto operativo de 2–4 caracteres alfanuméricos (`/^[A-Za-z][A-Za-z0-9]{1,3}$/`), único en el catálogo |
 | `category` | `string` | `cat_staple_foods`, `cat_critical_nutrition`, `cat_spices_morale`, `cat_pharma_essential`, `cat_trauma_hygiene`, `cat_water_fire_shelter`, `cat_tools_energy_comms`, `cat_store_of_value`, `cat_essential_services` |
 | `is_food` | `boolean` | `true` para alimentos calóricos; `false` para artículos no alimentarios, fármacos, herramientas y servicios |
 | `is_divisible` | `boolean` | `true` si es fraccionable en `sub_units`; `false` si solo se intercambia por unidades enteras |
@@ -242,6 +243,17 @@ Cada objeto en `data/items_core.js` o registrado mediante `BarterEngine.register
 | `psychological_factor` | `number` | Coeficiente de impacto moral y psicológico en el intervalo `[1.0, 2.5]` |
 | `fragility_index` | `number` | Coeficiente de resistencia física del envase en el intervalo `[0.7, 1.2]` |
 | `tags` | `string[]` | Array no vacío de etiquetas funcionales en `snake_case` |
+
+> **9 Prefijos de Códigos Operativos Cortos Aislados por Categoría (`short_code`):** Para permitir la expansión ilimitada (`Artículo 129+`) en cualquier categoría sin colisiones numéricas entre secciones adyacentes, cada una de las 9 categorías cuenta con su propio prefijo independiente para radio VHF/UHF y registros en papel:
+> - **`F`** (`F01–F20`, sig. `F21+`) ➔ `cat_staple_foods` (Alimentos Básicos Calóricos y Proteicos)
+> - **`N`** (`N01–N05`, sig. `N06+`) ➔ `cat_critical_nutrition` (Nutrición Crítica, Infantil y Terapéutica)
+> - **`C`** (`C01–C15`, sig. `C16+`) ➔ `cat_spices_morale` (Condimentos, Moral, Estimulantes y Conservación)
+> - **`M`** (`M01–M15`, sig. `M16+`) ➔ `cat_pharma_essential` (Medicamentos Esenciales OMS)
+> - **`H`** (`H01–H15`, sig. `H16+`) ➔ `cat_trauma_hygiene` (Trauma, Hemostasia, Asepsia e Higiene)
+> - **`W`** (`W01–W10`, sig. `W11+`) ➔ `cat_water_fire_shelter` (Desinfección de Agua, Fuego y Refugio)
+> - **`T`** (`T01–T14`, sig. `T15+`) ➔ `cat_tools_energy_comms` (Herramientas, Energía, Comunicaciones Off-Grid y Semillas)
+> - **`V`** (`V01–V06`, sig. `V07+`) ➔ `cat_store_of_value` (Reserva de Valor y Metales Preciosos)
+> - **`S`** (`S01–S28`, sig. `S29+`) ➔ `cat_essential_services` (Servicios Humanos Esenciales y Trabajo Técnico)
 
 ---
 
@@ -449,6 +461,7 @@ Al integrar el SDK en una aplicación externa, puede ampliar el catálogo canón
 const regionalDataset = [
   {
     id: 'doxycycline_hyclate_100mg_capsule',
+    short_code: 'M16', // Opcional: Código corto de radio/papel de 2 a 4 caracteres por categoría (F, N, C, M, H, W, T, V, S)
     category: 'cat_pharma_essential',
     is_food: false,
     is_divisible: false,
@@ -506,7 +519,7 @@ AuditSources.registerCustomAuditSource({
 
 ### Añadir el Artículo 129+
 1. Abra `data/items_core.js` y copie la plantilla comentada al final del array `ITEMS_CORE`.
-2. Defina un `id` semántico en `snake_case` en inglés (sin marcas comerciales) y complete todos los parámetros físicos y nutricionales siguiendo la Rúbrica de Calibración de la Sección 3.
+2. Defina un `id` semántico en `snake_case` en inglés (sin marcas comerciales), un `short_code` opcional aislado por categoría (`F21+`, `N06+`, `C16+`, `M16+`, `H16+`, `W11+`, `T15+`, `V07+` o `S29+`), y complete todos los parámetros físicos y nutricionales siguiendo la Rúbrica de Calibración de la Sección 3.
 3. Verifique con `window.BarterCore.Validator.validateDataset(window.BarterCore.ItemsCore)` que haya 0 errores y 0 advertencias.
 4. **Registre la Fuente de Auditoría del Nuevo Artículo (Separación en 2 Niveles):** Mantenga intacta la matriz canónica `001–128` y registre la fuente normativa, farmacopea regional o medición empírica de su `Artículo 129+` en la **Sección 4 (`Custom & Regional User Audit Ledger`)** de [`audit_sources/OFFLINE_AUDIT_DOSSIER.md`](../audit_sources/OFFLINE_AUDIT_DOSSIER.md) y/o mediante código con `window.BarterCore.AuditSources.registerCustomAuditSource({ index: 129, id, category, source_code, baseline_note })`.
 

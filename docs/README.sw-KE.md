@@ -138,6 +138,7 @@ Kila kipengee katika `data/items_core.js` au kinachosajiliwa kupitia `BarterEngi
 | Sifa | Aina | Vizuizi / Thamani Zinazoruhusiwa |
 | :--- | :--- | :--- |
 | `id` | `string` | Herufi ndogo za `snake_case` (`/^[a-z][a-z0-9_]{2,120}$/`), bila nambari tupu, bila chapa za kibiashara |
+| `short_code` | `string` *(hiari)* | Msimbo mfupi wa redio/karatasi wa herufi/nambari 2–4 (`/^[A-Za-z][A-Za-z0-9]{1,3}$/`), wa kipekee kwenye orodha |
 | `category` | `string` | `cat_staple_foods`, `cat_critical_nutrition`, `cat_spices_morale`, `cat_pharma_essential`, `cat_trauma_hygiene`, `cat_water_fire_shelter`, `cat_tools_energy_comms`, `cat_store_of_value`, `cat_essential_services` |
 | `is_food` | `boolean` | `true` kwa vyakula vyenye kalori; `false` kwa bidhaa zisizo za chakula, dawa, zana na huduma |
 | `is_divisible` | `boolean` | `true` ikiwa inagawanyika katika `sub_units`; `false` ikiwa inauzwa kama kipande kizima pekee |
@@ -151,6 +152,17 @@ Kila kipengee katika `data/items_core.js` au kinachosajiliwa kupitia `BarterEngi
 | `psychological_factor` | `number` | Kipimo cha mahitaji ya kisaikolojia na moyo ndani ya `[1.0, 2.5]` |
 | `fragility_index` | `number` | Kipimo cha uimara wa kifungashio ndani ya `[0.7, 1.2]` |
 | `tags` | `string[]` | Safu isiyo tupu ya lebo za kiutendaji kwa `snake_case` |
+
+> **Viambishi 9 vya Misimbo Mifupi ya Kiutendaji kwa Kila Kategoria (`short_code`):** Ili kuruhusu upanuzi usio na kikomo (`Bidhaa ya 129+`) katika kategoria yoyote bila mgongano wa nambari, kila kategoria ina kiambishi chake huru kwa mawasiliano ya redio ya VHF/UHF na daftari za karatasi:
+> - **`F`** (`F01–F20`, inayofuata `F21+`) ➔ `cat_staple_foods` (Vyakula Vikuu vya Kalori na Protini)
+> - **`N`** (`N01–N05`, inayofuata `N06+`) ➔ `cat_critical_nutrition` (Lishe Muhimu, ya Watoto na Tiba)
+> - **`C`** (`C01–C15`, inayofuata `C16+`) ➔ `cat_spices_morale` (Viungo, Morali, Vichocheo na Uhifadhi)
+> - **`M`** (`M01–M15`, inayofuata `M16+`) ➔ `cat_pharma_essential` (Dawa Muhimu za WHO)
+> - **`H`** (`H01–H15`, inayofuata `H16+`) ➔ `cat_trauma_hygiene` (Huduma ya Majeraha, Kuzuia Damu na Usafi)
+> - **`W`** (`W01–W10`, inayofuata `W11+`) ➔ `cat_water_fire_shelter` (Usafishaji Maji, Moto na Makazi)
+> - **`T`** (`T01–T14`, inayofuata `T15+`) ➔ `cat_tools_energy_comms` (Zana, Nishati, Mawasiliano na Mbegu)
+> - **`V`** (`V01–V06`, inayofuata `V07+`) ➔ `cat_store_of_value` (Hifadhi ya Thamani na Madini ya Thamani)
+> - **`S`** (`S01–S28`, inayofuata `S29+`) ➔ `cat_essential_services` (Huduma Muhimu za Kibinadamu na Ufundi)
 
 ---
 
@@ -238,7 +250,7 @@ console.log('Alama ya Mwisho:', itemScore.final_score); // 16458.3288
 
 ## 7. Jinsi ya Kuongeza Bidhaa ya 129+ au Kifurushi Kipya cha Lugha
 
-Tumia `BarterEngine.registerCustomItems([item], { mode: 'merge', strict: true })` kusajili bidhaa mpya za kikanda kuanzia **Bidhaa ya 129+ (`Items 129+`)**, au nakili `locales/en-US.js` kwenda `locales/[bcp47-code].js` na ukague kwa `Validator.validateLocale(customLocale, ItemsCore)`.
+Tumia `BarterEngine.registerCustomItems([item], { mode: 'merge', strict: true })` kusajili bidhaa mpya za kikanda kuanzia **Bidhaa ya 129+ (`Items 129+`)** (ikiwa ni pamoja na uwanja wa hiari `short_code?: string` wa herufi 2–4 kwa mawasiliano ya redio VHF/UHF na karatasi, mfano `'M16'`), au nakili `locales/en-US.js` kwenda `locales/[bcp47-code].js` na ukague kwa `Validator.validateLocale(customLocale, ItemsCore)`.
 
 ---
 

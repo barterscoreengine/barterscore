@@ -138,6 +138,7 @@ Q_B_exact = ( ScoreFinal(A) × Q_A ) / ScoreFinal(B)
 | الخاصية | النوع | القيود / القيم المسموحة |
 | :--- | :--- | :--- |
 | `id` | `string` | أحرف إنجليزية صغيرة بصيغة `snake_case` (`/^[a-z][a-z0-9_]{2,120}$/`)، غير رقمي، خالٍ من العلامات التجارية |
+| `short_code` | `string` *(اختياري)* | رمز تشغيلي قصير للراديو والورق من 2 إلى 4 أحرف/أرقام (`/^[A-Za-z][A-Za-z0-9]{1,3}$/`)، فريد في الدليل |
 | `category` | `string` | `cat_staple_foods`, `cat_critical_nutrition`, `cat_spices_morale`, `cat_pharma_essential`, `cat_trauma_hygiene`, `cat_water_fire_shelter`, `cat_tools_energy_comms`, `cat_store_of_value`, `cat_essential_services` |
 | `is_food` | `boolean` | `true` للأغذية السعرية؛ `false` للسلع غير الغذائية والأدوية والأدوات والخدمات |
 | `is_divisible` | `boolean` | `true` إذا كان قابلاً للتجزئة إلى `sub_units`؛ `false` إذا كان يُتداول كوحدة كاملة فقط |
@@ -151,6 +152,17 @@ Q_B_exact = ( ScoreFinal(A) × Q_A ) / ScoreFinal(B)
 | `psychological_factor` | `number` | معامل الطلب النفسي والمعنوي ضمن الفترة `[1.0, 2.5]` |
 | `fragility_index` | `number` | معامل متانة التغليف ضمن الفترة `[0.7, 1.2]` |
 | `tags` | `string[]` | مصفوفة غير فارغة من الوسوم الوظيفية بصيغة `snake_case` |
+
+> **البادئات التسع المستقلة للرموز التشغيلية القصيرة حسب الفئة (`short_code`):** للسماح بالتوسع غير المحدود (`العنصر 129+`) في أي فئة دون تعارض رقمي مع الأقسام المجاورة، تمتلك كل فئة من الفئات التسع بادئة مستقلة خاصة بها لاتصالات الراديو VHF/UHF والسجلات الورقية:
+> - **`F`** (`F01–F20`، التالي `F21+`) ➔ `cat_staple_foods` (الأغذية الأساسية السعرية والبروتينية)
+> - **`N`** (`N01–N05`، التالي `N06+`) ➔ `cat_critical_nutrition` (التغذية الحرجة وتغذية الرضع والعلاجية)
+> - **`C`** (`C01–C15`، التالي `C16+`) ➔ `cat_spices_morale` (التوابل والروح المعنوية والمنبهات والحفظ)
+> - **`M`** (`M01–M15`، التالي `M16+`) ➔ `cat_pharma_essential` (الأدوية الأساسية لمنظمة الصحة العالمية)
+> - **`H`** (`H01–H15`، التالي `H16+`) ➔ `cat_trauma_hygiene` (إصابات الطوارئ ووقف النزيف والتطهير والنظافة)
+> - **`W`** (`W01–W10`، التالي `W11+`) ➔ `cat_water_fire_shelter` (تطهير المياه وإشعال النار والمأوى)
+> - **`T`** (`T01–T14`، التالي `T15+`) ➔ `cat_tools_energy_comms` (الأدوات والطاقة والاتصالات المستقلة والبذور)
+> - **`V`** (`V01–V06`، التالي `V07+`) ➔ `cat_store_of_value` (مخازن القيمة والمعادن الثمينة)
+> - **`S`** (`S01–S28`، التالي `S29+`) ➔ `cat_essential_services` (الخدمات البشرية الأساسية والعمل التقني)
 
 ---
 
@@ -238,7 +250,7 @@ console.log('النقاط النهائية:', itemScore.final_score); // 16458.3
 
 ## 7. كيفية إضافة العنصر 129+ أو حزمة لغة جديدة
 
-استخدم الدالة `BarterEngine.registerCustomItems([item], { mode: 'merge', strict: true })` لتسجيل سلع أو خدمات إقليمية جديدة بدءاً من **العنصر 129+ (`Items 129+`)**، أو انسخ القالب `locales/en-US.js` إلى `locales/[bcp47-code].js` وافحصه عبر `Validator.validateLocale(customLocale, ItemsCore)`.
+استخدم الدالة `BarterEngine.registerCustomItems([item], { mode: 'merge', strict: true })` لتسجيل سلع أو خدمات إقليمية جديدة بدءاً من **العنصر 129+ (`Items 129+`)** (بما في ذلك الحقل الاختياري `short_code?: string` المكون من 2 إلى 4 أحرف/أرقام لاتصالات الراديو VHF/UHF والسجلات الورقية مثل `'M16'`)، أو انسخ القالب `locales/en-US.js` إلى `locales/[bcp47-code].js` وافحصه عبر `Validator.validateLocale(customLocale, ItemsCore)`.
 
 ---
 

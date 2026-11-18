@@ -229,6 +229,7 @@ Q_B_精确 = ( ScoreFinal(A) × Q_A ) / ScoreFinal(B)
 | 字段名 | 类型 | 约束条件与合法取值范围 |
 | :--- | :--- | :--- |
 | `id` | `string` | 全英文小写 `snake_case` (`/^[a-z][a-z0-9_]{2,120}$/`)，严禁纯数字编号与商业商标 |
+| `short_code` | `string` *(可选)* | 2–4 位字母数字无线电/纸质速记短码 (`/^[A-Za-z][A-Za-z0-9]{1,3}$/`)，全目录唯一 |
 | `category` | `string` | `cat_staple_foods`, `cat_critical_nutrition`, `cat_spices_morale`, `cat_pharma_essential`, `cat_trauma_hygiene`, `cat_water_fire_shelter`, `cat_tools_energy_comms`, `cat_store_of_value`, `cat_essential_services` |
 | `is_food` | `boolean` | 热量食品为 `true`；非食品、药品、工具与技术服务为 `false` |
 | `is_divisible` | `boolean` | 可按子单位拆分为 `true`；仅能整件交易为 `false` |
@@ -242,6 +243,17 @@ Q_B_精确 = ( ScoreFinal(A) × Q_A ) / ScoreFinal(B)
 | `psychological_factor` | `number` | 心理士气与刚需系数，位于 `[1.0, 2.5]` 区间 |
 | `fragility_index` | `number` | 包装物理抗损系数，位于 `[0.7, 1.2]` 区间 |
 | `tags` | `string[]` | 非空数组，元素为小写 `snake_case` 功能标签 |
+
+> **按分类独立编号的 9 类无线电/纸质速记短码前缀 (`short_code`)：** 为支持在任意分类下无限扩展新物资（`第 129+ 号物资`）而不与相邻分类发生编号冲突，9 大官方分类各自拥有独立的短码前缀（适用于 VHF/UHF 对讲机通报与纸质台账速记）：
+> - **`F`** (`F01–F20`，新增由 `F21+` 起) ➔ `cat_staple_foods`（主食热量与蛋白质食品）
+> - **`N`** (`N01–N05`，新增由 `N06+` 起) ➔ `cat_critical_nutrition`（关键营养、婴幼儿与治疗性营养品）
+> - **`C`** (`C01–C15`，新增由 `C16+` 起) ➔ `cat_spices_morale`（调味品、士气慰藉品、提神品与防腐剂）
+> - **`M`** (`M01–M15`，新增由 `M16+` 起) ➔ `cat_pharma_essential`（WHO 基本药物）
+> - **`H`** (`H01–H15`，新增由 `H16+` 起) ➔ `cat_trauma_hygiene`（创伤急救、止血、消毒与个人卫生）
+> - **`W`** (`W01–W10`，新增由 `W11+` 起) ➔ `cat_water_fire_shelter`（饮水净化、生火与庇护物资）
+> - **`T`** (`T01–T14`，新增由 `T15+` 起) ➔ `cat_tools_energy_comms`（工具、能源、离网通信与非杂交种子）
+> - **`V`** (`V01–V06`，新增由 `V07+` 起) ➔ `cat_store_of_value`（价值储藏与贵金属硬通货）
+> - **`S`** (`S01–S28`，新增由 `S29+` 起) ➔ `cat_essential_services`（关键人类技术服务与专业劳务）
 
 ---
 
@@ -449,6 +461,7 @@ console.log(JSON.stringify(tradeResult, null, 2));
 const regionalDataset = [
   {
     id: 'doxycycline_hyclate_100mg_capsule',
+    short_code: 'M16', // 可选：按 9 大分类划分的 2–4 位无线电/纸质短代码 (F, N, C, M, H, W, T, V, S)
     category: 'cat_pharma_essential',
     is_food: false,
     is_divisible: false,
@@ -506,7 +519,7 @@ AuditSources.registerCustomAuditSource({
 
 ### 扩展第 129+ 号物资
 1. 打开 `data/items_core.js`，复制文件末尾注释块中的标准物资模板。
-2. 遵循第 3 节的权重标定标尺，填写符合 WHO/INN、IEC 或国际食品法典的无商标英文 `snake_case` 语义 `id` 及完整物理、营养参数。
+2. 遵循第 3 节的权重标定标尺，填写符合 WHO/INN、IEC 或国际食品法典的无商标英文 `snake_case` 语义 `id`、按分类独立编号的可选 `short_code`（`F21+`、`N06+`、`C16+`、`M16+`、`H16+`、`W11+`、`T15+`、`V07+` 或 `S29+`）及完整物理、营养参数。
 3. 运行 `window.BarterCore.Validator.validateDataset(window.BarterCore.ItemsCore)` 确保 0 错误、0 警告。
 4. **登记新增物资的独立审计溯源记录（双层隔离机制）：** 保持官方 `001–128` 核心审计矩阵原封不动，在 [`audit_sources/OFFLINE_AUDIT_DOSSIER.md`](../audit_sources/OFFLINE_AUDIT_DOSSIER.md) 的 **第 4 节（`Custom & Regional User Audit Ledger`）** 中记录您新增 `第 129+ 号物资` 的药典、国标或实测依据，和/或通过代码调用 `window.BarterCore.AuditSources.registerCustomAuditSource({ index: 129, id, category, source_code, baseline_note })` 进行动态注册。
 

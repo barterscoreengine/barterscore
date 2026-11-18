@@ -228,6 +228,7 @@ Every item object in `data/items_core.js` or registered via `BarterEngine.regist
 | Property | Type | Constraint / Allowed Values |
 | :--- | :--- | :--- |
 | `id` | `string` | Lowercase `snake_case` (`/^[a-z][a-z0-9_]{2,120}$/`), non-numeric, zero commercial brands |
+| `short_code` | `string` *(optional)* | 2–4 alphanumeric radio/paper ticker (`/^[A-Za-z][A-Za-z0-9]{1,3}$/`), unique across the dataset |
 | `category` | `string` | `cat_staple_foods`, `cat_critical_nutrition`, `cat_spices_morale`, `cat_pharma_essential`, `cat_trauma_hygiene`, `cat_water_fire_shelter`, `cat_tools_energy_comms`, `cat_store_of_value`, `cat_essential_services` |
 | `is_food` | `boolean` | `true` for caloric foods; `false` for non-foods, pharmaceuticals, tools, and services |
 | `is_divisible` | `boolean` | `true` if portionable into `sub_units`; `false` if traded only as whole units |
@@ -241,6 +242,17 @@ Every item object in `data/items_core.js` or registered via `BarterEngine.regist
 | `psychological_factor` | `number` | Psychological / morale demand coefficient within `[1.0, 2.5]` |
 | `fragility_index` | `number` | Packaging durability coefficient within `[0.7, 1.2]` |
 | `tags` | `string[]` | Non-empty array of functional `snake_case` tags |
+
+> **9 Category-Isolated Operational Short Code Prefixes (`short_code`):** To allow unlimited expansion (`Item 129+`) in any category without numeric collisions across adjacent sections, each of the 9 categories has its own independent prefix for VHF/UHF radio and paper ledgers:
+> - **`F`** (`F01–F20`, next `F21+`) ➔ `cat_staple_foods` (Caloric Staple & Protein Foods)
+> - **`N`** (`N01–N05`, next `N06+`) ➔ `cat_critical_nutrition` (Infant, Micronutrient & Therapeutic Nutrition)
+> - **`C`** (`C01–C15`, next `C16+`) ➔ `cat_spices_morale` (Condiments, Morale, Stimulants & Preservation)
+> - **`M`** (`M01–M15`, next `M16+`) ➔ `cat_pharma_essential` (WHO Essential Medicines)
+> - **`H`** (`H01–H15`, next `H16+`) ➔ `cat_trauma_hygiene` (Trauma, Hemostasis, Asepsis & Hygiene)
+> - **`W`** (`W01–W10`, next `W11+`) ➔ `cat_water_fire_shelter` (Water Disinfection, Fire & Shelter)
+> - **`T`** (`T01–T14`, next `T15+`) ➔ `cat_tools_energy_comms` (Tools, Energy, Off-Grid Comms & Seeds)
+> - **`V`** (`V01–V06`, next `V07+`) ➔ `cat_store_of_value` (Store of Value & Precious Metals)
+> - **`S`** (`S01–S28`, next `S29+`) ➔ `cat_essential_services` (Essential Human Services & Technical Labor)
 
 ---
 
@@ -448,6 +460,7 @@ When integrating the SDK into an external application, you can extend the canoni
 const regionalDataset = [
   {
     id: 'doxycycline_hyclate_100mg_capsule',
+    short_code: 'M16', // Optional 2-4 char radio/paper ticker by category (F, N, C, M, H, W, T, V, S)
     category: 'cat_pharma_essential',
     is_food: false,
     is_divisible: false,
@@ -505,7 +518,7 @@ AuditSources.registerCustomAuditSource({
 
 ### Adding Item 129+
 1. Open `data/items_core.js` and copy the commented template block at the bottom of `ITEMS_CORE`.
-2. Assign a brand-free, lowercase `snake_case` semantic `id` and complete all physical and nutritional parameters following the Calibration Rubric in Section 3.
+2. Assign a brand-free, lowercase `snake_case` semantic `id`, an optional category-isolated `short_code` (`F21+`, `N06+`, `C16+`, `M16+`, `H16+`, `W11+`, `T15+`, `V07+`, or `S29+`), and complete all physical and nutritional parameters following the Calibration Rubric in Section 3.
 3. Verify zero errors and zero warnings using `window.BarterCore.Validator.validateDataset(window.BarterCore.ItemsCore)`.
 4. **Register Custom Audit Traceability (Tier 2 Separation):** Keep the canonical `001–128` core ledger untouched and record the scientific or regional regulatory source of your new `Item 129+` in **Section 4 (`Custom & Regional User Audit Ledger`)** of [`audit_sources/OFFLINE_AUDIT_DOSSIER.md`](./audit_sources/OFFLINE_AUDIT_DOSSIER.md) and/or programmatically via `window.BarterCore.AuditSources.registerCustomAuditSource({ index: 129, id, category, source_code, baseline_note })`.
 
