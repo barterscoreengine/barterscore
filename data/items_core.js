@@ -66,6 +66,7 @@
     // =========================================================================
     {
       id: 'rice_white_polished_raw_1000g',
+      short_code: 'F01',
       category: 'cat_staple_foods',
       is_food: true,
       is_divisible: true,
@@ -96,6 +97,7 @@
     },
     {
       id: 'beans_common_dry_1000g',
+      short_code: 'F02',
       category: 'cat_staple_foods',
       is_food: true,
       is_divisible: true,
@@ -126,6 +128,7 @@
     },
     {
       id: 'lentils_dry_raw_500g',
+      short_code: 'F03',
       category: 'cat_staple_foods',
       is_food: true,
       is_divisible: true,
@@ -156,6 +159,7 @@
     },
     {
       id: 'chickpeas_dry_raw_500g',
+      short_code: 'F04',
       category: 'cat_staple_foods',
       is_food: true,
       is_divisible: true,
@@ -186,6 +190,7 @@
     },
     {
       id: 'pasta_wheat_dry_500g',
+      short_code: 'F05',
       category: 'cat_staple_foods',
       is_food: true,
       is_divisible: true,
@@ -216,6 +221,7 @@
     },
     {
       id: 'flour_cassava_dry_1000g',
+      short_code: 'F06',
       category: 'cat_staple_foods',
       is_food: true,
       is_divisible: true,
@@ -246,6 +252,7 @@
     },
     {
       id: 'flour_wheat_enriched_1000g',
+      short_code: 'F07',
       category: 'cat_staple_foods',
       is_food: true,
       is_divisible: true,
@@ -276,6 +283,7 @@
     },
     {
       id: 'cornmeal_flaked_dry_500g',
+      short_code: 'F08',
       category: 'cat_staple_foods',
       is_food: true,
       is_divisible: true,
@@ -306,6 +314,7 @@
     },
     {
       id: 'oats_rolled_whole_500g',
+      short_code: 'F09',
       category: 'cat_staple_foods',
       is_food: true,
       is_divisible: true,
@@ -336,6 +345,7 @@
     },
     {
       id: 'milk_powder_whole_400g',
+      short_code: 'F10',
       category: 'cat_staple_foods',
       is_food: true,
       is_divisible: true,
@@ -366,6 +376,7 @@
     },
     {
       id: 'oil_vegetable_refined_900ml',
+      short_code: 'F11',
       category: 'cat_staple_foods',
       is_food: true,
       is_divisible: true,
@@ -396,6 +407,7 @@
     },
     {
       id: 'lard_pork_rendered_500g',
+      short_code: 'F12',
       category: 'cat_staple_foods',
       is_food: true,
       is_divisible: true,
@@ -426,6 +438,7 @@
     },
     {
       id: 'fish_sardine_canned_oil_125g',
+      short_code: 'F13',
       category: 'cat_staple_foods',
       is_food: true,
       is_divisible: false,
@@ -456,6 +469,7 @@
     },
     {
       id: 'fish_tuna_canned_solid_170g',
+      short_code: 'F14',
       category: 'cat_staple_foods',
       is_food: true,
       is_divisible: false,
@@ -486,6 +500,7 @@
     },
     {
       id: 'meat_bovine_cured_salted_500g',
+      short_code: 'F15',
       category: 'cat_staple_foods',
       is_food: true,
       is_divisible: true,
@@ -516,6 +531,7 @@
     },
     {
       id: 'meat_bovine_canned_cooked_320g',
+      short_code: 'F16',
       category: 'cat_staple_foods',
       is_food: true,
       is_divisible: false,
@@ -546,6 +562,7 @@
     },
     {
       id: 'peanut_paste_roasted_500g',
+      short_code: 'F17',
       category: 'cat_staple_foods',
       is_food: true,
       is_divisible: true,
@@ -576,6 +593,7 @@
     },
     {
       id: 'honey_bee_pure_500g',
+      short_code: 'F18',
       category: 'cat_staple_foods',
       is_food: true,
       is_divisible: true,
@@ -606,6 +624,7 @@
     },
     {
       id: 'biscuit_wheat_salted_dry_400g',
+      short_code: 'F19',
       category: 'cat_staple_foods',
       is_food: true,
       is_divisible: true,
@@ -636,6 +655,7 @@
     },
     {
       id: 'water_potable_sealed_1000ml',
+      short_code: 'F20',
       category: 'cat_staple_foods',
       is_food: false,
       is_divisible: true,
@@ -670,6 +690,7 @@
     // =========================================================================
     {
       id: 'infant_formula_powder_stage1_400g',
+      short_code: 'N01',
       category: 'cat_critical_nutrition',
       is_food: true,
       is_divisible: true,
@@ -700,6 +721,7 @@
     },
     {
       id: 'ration_emergency_compressed_500g',
+      short_code: 'N02',
       category: 'cat_critical_nutrition',
       is_food: true,
       is_divisible: true,
@@ -730,6 +752,7 @@
     },
     {
       id: 'protein_whey_concentrate_powder_100g',
+      short_code: 'N03',
       category: 'cat_critical_nutrition',
       is_food: true,
       is_divisible: true,
@@ -760,6 +783,7 @@
     },
     {
       id: 'coconut_milk_powder_200g',
+      short_code: 'N04',
       category: 'cat_critical_nutrition',
       is_food: true,
       is_divisible: true,
@@ -790,6 +814,7 @@
     },
     {
       id: 'gelatin_unflavored_powder_50g',
+      short_code: 'N05',
       category: 'cat_critical_nutrition',
       is_food: true,
       is_divisible: true,
@@ -824,6 +849,7 @@
     // =========================================================================
     {
       id: 'salt_sodium_chloride_iodized_1000g',
+      short_code: 'C01',
       category: 'cat_spices_morale',
       is_food: false,
       is_divisible: true,
@@ -854,6 +880,7 @@
     },
     {
       id: 'sugar_sucrose_crystal_1000g',
+      short_code: 'C02',
       category: 'cat_spices_morale',
       is_food: true,
       is_divisible: true,
@@ -884,6 +911,7 @@
     },
     {
       id: 'coffee_roasted_ground_vacuum_500g',
+      short_code: 'C03',
       category: 'cat_spices_morale',
       is_food: false,
       is_divisible: true,
@@ -914,6 +942,7 @@
     },
     {
       id: 'coffee_instant_soluble_granules_50g',
+      short_code: 'C04',
       category: 'cat_spices_morale',
       is_food: false,
       is_divisible: true,
@@ -944,6 +973,7 @@
     },
     {
       id: 'tomato_paste_concentrated_300g',
+      short_code: 'C05',
       category: 'cat_spices_morale',
       is_food: true,
       is_divisible: true,
@@ -974,6 +1004,7 @@
     },
     {
       id: 'broth_bouillon_dehydrated_cube_10g',
+      short_code: 'C06',
       category: 'cat_spices_morale',
       is_food: true,
       is_divisible: false,
@@ -1004,6 +1035,7 @@
     },
     {
       id: 'vinegar_acetic_acid_4pct_750ml',
+      short_code: 'C07',
       category: 'cat_spices_morale',
       is_food: false,
       is_divisible: true,
@@ -1034,6 +1066,7 @@
     },
     {
       id: 'garlic_dehydrated_powder_100g',
+      short_code: 'C08',
       category: 'cat_spices_morale',
       is_food: true,
       is_divisible: true,
@@ -1064,6 +1097,7 @@
     },
     {
       id: 'pepper_black_ground_50g',
+      short_code: 'C09',
       category: 'cat_spices_morale',
       is_food: true,
       is_divisible: true,
@@ -1094,6 +1128,7 @@
     },
     {
       id: 'sodium_bicarbonate_pure_100g',
+      short_code: 'C10',
       category: 'cat_spices_morale',
       is_food: false,
       is_divisible: true,
@@ -1124,6 +1159,7 @@
     },
     {
       id: 'chocolate_dark_cocoa_60pct_100g',
+      short_code: 'C11',
       category: 'cat_spices_morale',
       is_food: true,
       is_divisible: true,
@@ -1154,6 +1190,7 @@
     },
     {
       id: 'candy_hard_glucose_unit_5g',
+      short_code: 'C12',
       category: 'cat_spices_morale',
       is_food: true,
       is_divisible: false,
@@ -1184,6 +1221,7 @@
     },
     {
       id: 'tea_camellia_sinensis_dry_50g',
+      short_code: 'C13',
       category: 'cat_spices_morale',
       is_food: false,
       is_divisible: true,
@@ -1214,6 +1252,7 @@
     },
     {
       id: 'tobacco_cigarette_filtered_unit',
+      short_code: 'C14',
       category: 'cat_spices_morale',
       is_food: false,
       is_divisible: false,
@@ -1244,6 +1283,7 @@
     },
     {
       id: 'alcohol_ethanol_potable_40pct_500ml',
+      short_code: 'C15',
       category: 'cat_spices_morale',
       is_food: false,
       is_divisible: true,
@@ -1278,6 +1318,7 @@
     // =========================================================================
     {
       id: 'amoxicillin_500mg_capsule',
+      short_code: 'M01',
       category: 'cat_pharma_essential',
       is_food: false,
       is_divisible: false,
@@ -1308,6 +1349,7 @@
     },
     {
       id: 'azithromycin_500mg_tablet',
+      short_code: 'M02',
       category: 'cat_pharma_essential',
       is_food: false,
       is_divisible: false,
@@ -1338,6 +1380,7 @@
     },
     {
       id: 'ciprofloxacin_500mg_tablet',
+      short_code: 'M03',
       category: 'cat_pharma_essential',
       is_food: false,
       is_divisible: false,
@@ -1368,6 +1411,7 @@
     },
     {
       id: 'metronidazole_400mg_tablet',
+      short_code: 'M04',
       category: 'cat_pharma_essential',
       is_food: false,
       is_divisible: false,
@@ -1398,6 +1442,7 @@
     },
     {
       id: 'paracetamol_500mg_tablet',
+      short_code: 'M05',
       category: 'cat_pharma_essential',
       is_food: false,
       is_divisible: false,
@@ -1428,6 +1473,7 @@
     },
     {
       id: 'metamizole_sodium_500mg_tablet',
+      short_code: 'M06',
       category: 'cat_pharma_essential',
       is_food: false,
       is_divisible: false,
@@ -1458,6 +1504,7 @@
     },
     {
       id: 'ibuprofen_400mg_tablet',
+      short_code: 'M07',
       category: 'cat_pharma_essential',
       is_food: false,
       is_divisible: false,
@@ -1488,6 +1535,7 @@
     },
     {
       id: 'ibuprofen_oral_suspension_50mg_ml_20ml',
+      short_code: 'M08',
       category: 'cat_pharma_essential',
       is_food: false,
       is_divisible: true,
@@ -1518,6 +1566,7 @@
     },
     {
       id: 'loperamide_hydrochloride_2mg_tablet',
+      short_code: 'M09',
       category: 'cat_pharma_essential',
       is_food: false,
       is_divisible: false,
@@ -1548,6 +1597,7 @@
     },
     {
       id: 'oral_rehydration_salts_who_sachet_27_9g',
+      short_code: 'M10',
       category: 'cat_pharma_essential',
       is_food: false,
       is_divisible: false,
@@ -1582,6 +1632,7 @@
     // =========================================================================
     {
       id: 'loratadine_10mg_tablet',
+      short_code: 'M11',
       category: 'cat_pharma_essential',
       is_food: false,
       is_divisible: false,
@@ -1612,6 +1663,7 @@
     },
     {
       id: 'omeprazole_20mg_capsule',
+      short_code: 'M12',
       category: 'cat_pharma_essential',
       is_food: false,
       is_divisible: false,
@@ -1642,6 +1694,7 @@
     },
     {
       id: 'potassium_iodide_130mg_tablet',
+      short_code: 'M13',
       category: 'cat_pharma_essential',
       is_food: false,
       is_divisible: false,
@@ -1672,6 +1725,7 @@
     },
     {
       id: 'ascorbic_acid_500mg_tablet',
+      short_code: 'M14',
       category: 'cat_pharma_essential',
       is_food: false,
       is_divisible: false,
@@ -1702,6 +1756,7 @@
     },
     {
       id: 'multivitamin_mineral_complex_tablet',
+      short_code: 'M15',
       category: 'cat_pharma_essential',
       is_food: false,
       is_divisible: false,
@@ -1736,6 +1791,7 @@
     // =========================================================================
     {
       id: 'ethanol_antiseptic_70pct_100ml',
+      short_code: 'H01',
       category: 'cat_trauma_hygiene',
       is_food: false,
       is_divisible: true,
@@ -1766,6 +1822,7 @@
     },
     {
       id: 'hydrogen_peroxide_3pct_10vol_100ml',
+      short_code: 'H02',
       category: 'cat_trauma_hygiene',
       is_food: false,
       is_divisible: true,
@@ -1796,6 +1853,7 @@
     },
     {
       id: 'povidone_iodine_10pct_topical_100ml',
+      short_code: 'H03',
       category: 'cat_trauma_hygiene',
       is_food: false,
       is_divisible: true,
@@ -1826,6 +1884,7 @@
     },
     {
       id: 'chlorhexidine_digluconate_2pct_100ml',
+      short_code: 'H04',
       category: 'cat_trauma_hygiene',
       is_food: false,
       is_divisible: true,
@@ -1856,6 +1915,7 @@
     },
     {
       id: 'gauze_sterile_compress_7_5cm_unit',
+      short_code: 'H05',
       category: 'cat_trauma_hygiene',
       is_food: false,
       is_divisible: false,
@@ -1886,6 +1946,7 @@
     },
     {
       id: 'tape_medical_waterproof_spool_5m',
+      short_code: 'H06',
       category: 'cat_trauma_hygiene',
       is_food: false,
       is_divisible: true,
@@ -1916,6 +1977,7 @@
     },
     {
       id: 'bandage_elastic_compression_roll_2m',
+      short_code: 'H07',
       category: 'cat_trauma_hygiene',
       is_food: false,
       is_divisible: false,
@@ -1946,6 +2008,7 @@
     },
     {
       id: 'tourniquet_tactical_arterial_unit',
+      short_code: 'H08',
       category: 'cat_trauma_hygiene',
       is_food: false,
       is_divisible: false,
@@ -1976,6 +2039,7 @@
     },
     {
       id: 'suture_surgical_nylon_3_0_needle_unit',
+      short_code: 'H09',
       category: 'cat_trauma_hygiene',
       is_food: false,
       is_divisible: false,
@@ -2006,6 +2070,7 @@
     },
     {
       id: 'syringe_sterile_5ml_with_needle_unit',
+      short_code: 'H10',
       category: 'cat_trauma_hygiene',
       is_food: false,
       is_divisible: false,
@@ -2036,6 +2101,7 @@
     },
     {
       id: 'gloves_nitrile_exam_pair',
+      short_code: 'H11',
       category: 'cat_trauma_hygiene',
       is_food: false,
       is_divisible: false,
@@ -2066,6 +2132,7 @@
     },
     {
       id: 'respirator_particulate_n95_pff2_unit',
+      short_code: 'H12',
       category: 'cat_trauma_hygiene',
       is_food: false,
       is_divisible: false,
@@ -2096,6 +2163,7 @@
     },
     {
       id: 'soap_glycerin_neutral_bar_200g',
+      short_code: 'H13',
       category: 'cat_trauma_hygiene',
       is_food: false,
       is_divisible: true,
@@ -2126,6 +2194,7 @@
     },
     {
       id: 'paper_toilet_cellulose_roll_30m',
+      short_code: 'H14',
       category: 'cat_trauma_hygiene',
       is_food: false,
       is_divisible: true,
@@ -2156,6 +2225,7 @@
     },
     {
       id: 'sanitary_pad_absorbent_external_unit',
+      short_code: 'H15',
       category: 'cat_trauma_hygiene',
       is_food: false,
       is_divisible: false,
@@ -2190,6 +2260,7 @@
     // =========================================================================
     {
       id: 'sodium_hypochlorite_2_5pct_1000ml',
+      short_code: 'W01',
       category: 'cat_water_fire_shelter',
       is_food: false,
       is_divisible: true,
@@ -2220,6 +2291,7 @@
     },
     {
       id: 'water_purification_nadcc_tablet_unit',
+      short_code: 'W02',
       category: 'cat_water_fire_shelter',
       is_food: false,
       is_divisible: false,
@@ -2250,6 +2322,7 @@
     },
     {
       id: 'filter_water_hollow_fiber_0_1micron_unit',
+      short_code: 'W03',
       category: 'cat_water_fire_shelter',
       is_food: false,
       is_divisible: false,
@@ -2280,6 +2353,7 @@
     },
     {
       id: 'lighter_butane_piezo_standard_unit',
+      short_code: 'W04',
       category: 'cat_water_fire_shelter',
       is_food: false,
       is_divisible: false,
@@ -2310,6 +2384,7 @@
     },
     {
       id: 'ferrocerium_ignition_rod_8mm_unit',
+      short_code: 'W05',
       category: 'cat_water_fire_shelter',
       is_food: false,
       is_divisible: false,
@@ -2340,6 +2415,7 @@
     },
     {
       id: 'matches_waterproof_safety_box_40un',
+      short_code: 'W06',
       category: 'cat_water_fire_shelter',
       is_food: false,
       is_divisible: true,
@@ -2370,6 +2446,7 @@
     },
     {
       id: 'candle_paraffin_solid_white_30g_unit',
+      short_code: 'W07',
       category: 'cat_water_fire_shelter',
       is_food: false,
       is_divisible: false,
@@ -2400,6 +2477,7 @@
     },
     {
       id: 'fuel_solid_hexamine_tablet_14g_unit',
+      short_code: 'W08',
       category: 'cat_water_fire_shelter',
       is_food: false,
       is_divisible: false,
@@ -2430,6 +2508,7 @@
     },
     {
       id: 'blanket_thermal_aluminized_mylar_unit',
+      short_code: 'W09',
       category: 'cat_water_fire_shelter',
       is_food: false,
       is_divisible: false,
@@ -2460,6 +2539,7 @@
     },
     {
       id: 'tarp_polyethylene_waterproof_3x3m_unit',
+      short_code: 'W10',
       category: 'cat_water_fire_shelter',
       is_food: false,
       is_divisible: false,
@@ -2494,6 +2574,7 @@
     // =========================================================================
     {
       id: 'knife_fixed_blade_carbon_steel_fulltang',
+      short_code: 'T01',
       category: 'cat_tools_energy_comms',
       is_food: false,
       is_divisible: false,
@@ -2524,6 +2605,7 @@
     },
     {
       id: 'multitool_pliers_stainless_folding_unit',
+      short_code: 'T02',
       category: 'cat_tools_energy_comms',
       is_food: false,
       is_divisible: false,
@@ -2554,6 +2636,7 @@
     },
     {
       id: 'saw_wire_stainless_pocket_unit',
+      short_code: 'T03',
       category: 'cat_tools_energy_comms',
       is_food: false,
       is_divisible: false,
@@ -2584,6 +2667,7 @@
     },
     {
       id: 'tape_cloth_adhesive_waterproof_48mm_10m',
+      short_code: 'T04',
       category: 'cat_tools_energy_comms',
       is_food: false,
       is_divisible: true,
@@ -2614,6 +2698,7 @@
     },
     {
       id: 'cord_nylon_kernmantle_550lb_10m',
+      short_code: 'T05',
       category: 'cat_tools_energy_comms',
       is_food: false,
       is_divisible: true,
@@ -2644,6 +2729,7 @@
     },
     {
       id: 'steel_wool_fine_grade_0000_pad_unit',
+      short_code: 'T06',
       category: 'cat_tools_energy_comms',
       is_food: false,
       is_divisible: false,
@@ -2674,6 +2760,7 @@
     },
     {
       id: 'needle_sewing_heavy_steel_with_thread_10m',
+      short_code: 'T07',
       category: 'cat_tools_energy_comms',
       is_food: false,
       is_divisible: false,
@@ -2704,6 +2791,7 @@
     },
     {
       id: 'fishing_kit_line_20m_hooks_5un_weights_5un',
+      short_code: 'T08',
       category: 'cat_tools_energy_comms',
       is_food: false,
       is_divisible: false,
@@ -2734,6 +2822,7 @@
     },
     {
       id: 'battery_alkaline_lr6_aa_1_5v_unit',
+      short_code: 'T09',
       category: 'cat_tools_energy_comms',
       is_food: false,
       is_divisible: false,
@@ -2764,6 +2853,7 @@
     },
     {
       id: 'battery_alkaline_lr03_aaa_1_5v_unit',
+      short_code: 'T10',
       category: 'cat_tools_energy_comms',
       is_food: false,
       is_divisible: false,
@@ -2794,6 +2884,7 @@
     },
     {
       id: 'battery_lithium_ion_18650_3_7v_3000mah_unit',
+      short_code: 'T11',
       category: 'cat_tools_energy_comms',
       is_food: false,
       is_divisible: false,
@@ -2824,6 +2915,7 @@
     },
     {
       id: 'flashlight_led_aluminum_aa_compatible_unit',
+      short_code: 'T12',
       category: 'cat_tools_energy_comms',
       is_food: false,
       is_divisible: false,
@@ -2854,6 +2946,7 @@
     },
     {
       id: 'panel_solar_monocrystalline_usb_5v_10w_unit',
+      short_code: 'T13',
       category: 'cat_tools_energy_comms',
       is_food: false,
       is_divisible: false,
@@ -2884,6 +2977,7 @@
     },
     {
       id: 'radio_transceiver_vhf_uhf_dualband_unit',
+      short_code: 'T14',
       category: 'cat_tools_energy_comms',
       is_food: false,
       is_divisible: false,
@@ -2918,6 +3012,7 @@
     // =========================================================================
     {
       id: 'faraday_bag_shielded_rf_emp_medium_unit',
+      short_code: 'V01',
       category: 'cat_store_of_value',
       is_food: false,
       is_divisible: false,
@@ -2948,6 +3043,7 @@
     },
     {
       id: 'microsd_flash_storage_64gb_offline_wiki_unit',
+      short_code: 'V02',
       category: 'cat_store_of_value',
       is_food: false,
       is_divisible: false,
@@ -2978,6 +3074,7 @@
     },
     {
       id: 'eyeglasses_reading_convex_diopter_plus_2_0',
+      short_code: 'V03',
       category: 'cat_store_of_value',
       is_food: false,
       is_divisible: false,
@@ -3008,6 +3105,7 @@
     },
     {
       id: 'seeds_open_pollinated_vegetable_mix_50g',
+      short_code: 'V04',
       category: 'cat_store_of_value',
       is_food: false,
       is_divisible: true,
@@ -3038,6 +3136,7 @@
     },
     {
       id: 'silver_bullion_999_fine_1_troy_oz_31_1g',
+      short_code: 'V05',
       category: 'cat_store_of_value',
       is_food: false,
       is_divisible: false,
@@ -3068,6 +3167,7 @@
     },
     {
       id: 'gold_bullion_999_fine_fractional_1g',
+      short_code: 'V06',
       category: 'cat_store_of_value',
       is_food: false,
       is_divisible: false,
@@ -3102,6 +3202,7 @@
     // =========================================================================
     {
       id: 'service_trauma_wound_debridement_suturing_proc',
+      short_code: 'S01',
       category: 'cat_essential_services',
       is_food: false,
       is_divisible: false,
@@ -3132,6 +3233,7 @@
     },
     {
       id: 'service_fracture_closed_reduction_splinting_proc',
+      short_code: 'S02',
       category: 'cat_essential_services',
       is_food: false,
       is_divisible: false,
@@ -3162,6 +3264,7 @@
     },
     {
       id: 'service_dental_extraction_infection_drainage_proc',
+      short_code: 'S03',
       category: 'cat_essential_services',
       is_food: false,
       is_divisible: false,
@@ -3192,6 +3295,7 @@
     },
     {
       id: 'service_obstetric_delivery_midwifery_care_proc',
+      short_code: 'S04',
       category: 'cat_essential_services',
       is_food: false,
       is_divisible: false,
@@ -3222,6 +3326,7 @@
     },
     {
       id: 'service_clinical_triage_nursing_care_shift_4hr',
+      short_code: 'S05',
       category: 'cat_essential_services',
       is_food: false,
       is_divisible: false,
@@ -3252,6 +3357,7 @@
     },
     {
       id: 'service_water_well_pump_filtration_repair_proc',
+      short_code: 'S06',
       category: 'cat_essential_services',
       is_food: false,
       is_divisible: false,
@@ -3282,6 +3388,7 @@
     },
     {
       id: 'service_sanitation_latrine_vector_control_proc',
+      short_code: 'S07',
       category: 'cat_essential_services',
       is_food: false,
       is_divisible: false,
@@ -3312,6 +3419,7 @@
     },
     {
       id: 'service_solar_pv_battery_dc_diagnostics_repair_proc',
+      short_code: 'S08',
       category: 'cat_essential_services',
       is_food: false,
       is_divisible: false,
@@ -3342,6 +3450,7 @@
     },
     {
       id: 'service_generator_internal_combustion_overhaul_proc',
+      short_code: 'S09',
       category: 'cat_essential_services',
       is_food: false,
       is_divisible: false,
@@ -3372,6 +3481,7 @@
     },
     {
       id: 'service_radio_vhf_uhf_antenna_calibration_repair_proc',
+      short_code: 'S10',
       category: 'cat_essential_services',
       is_food: false,
       is_divisible: false,
@@ -3402,6 +3512,7 @@
     },
     {
       id: 'service_metallurgy_blade_tool_forging_sharpening_proc',
+      short_code: 'S11',
       category: 'cat_essential_services',
       is_food: false,
       is_divisible: false,
@@ -3432,6 +3543,7 @@
     },
     {
       id: 'service_mechanical_bicycle_cart_drivetrain_repair_proc',
+      short_code: 'S12',
       category: 'cat_essential_services',
       is_food: false,
       is_divisible: false,
@@ -3462,6 +3574,7 @@
     },
     {
       id: 'service_shelter_roofing_structural_carpentry_proc',
+      short_code: 'S13',
       category: 'cat_essential_services',
       is_food: false,
       is_divisible: false,
@@ -3492,6 +3605,7 @@
     },
     {
       id: 'service_masonry_thermal_stove_chimney_build_proc',
+      short_code: 'S14',
       category: 'cat_essential_services',
       is_food: false,
       is_divisible: false,
@@ -3522,6 +3636,7 @@
     },
     {
       id: 'service_footwear_cobbling_heavy_textile_repair_proc',
+      short_code: 'S15',
       category: 'cat_essential_services',
       is_food: false,
       is_divisible: false,
@@ -3552,6 +3667,7 @@
     },
     {
       id: 'service_veterinary_livestock_obstetrics_wound_proc',
+      short_code: 'S16',
       category: 'cat_essential_services',
       is_food: false,
       is_divisible: false,
@@ -3582,6 +3698,7 @@
     },
     {
       id: 'service_agrarian_crop_grafting_seed_preservation_proc',
+      short_code: 'S17',
       category: 'cat_essential_services',
       is_food: false,
       is_divisible: false,
@@ -3612,6 +3729,7 @@
     },
     {
       id: 'service_food_preservation_smoking_fermentation_batch',
+      short_code: 'S18',
       category: 'cat_essential_services',
       is_food: false,
       is_divisible: false,
@@ -3642,6 +3760,7 @@
     },
     {
       id: 'service_security_perimeter_watch_patrol_shift_4hr',
+      short_code: 'S19',
       category: 'cat_essential_services',
       is_food: false,
       is_divisible: false,
@@ -3672,6 +3791,7 @@
     },
     {
       id: 'service_logistics_heavy_cargo_portage_5km_25kg',
+      short_code: 'S20',
       category: 'cat_essential_services',
       is_food: false,
       is_divisible: false,
@@ -3702,6 +3822,7 @@
     },
     {
       id: 'service_it_mesh_network_intranet_deployment_proc',
+      short_code: 'S21',
       category: 'cat_essential_services',
       is_food: false,
       is_divisible: false,
@@ -3732,6 +3853,7 @@
     },
     {
       id: 'service_it_data_recovery_extraction_proc',
+      short_code: 'S22',
       category: 'cat_essential_services',
       is_food: false,
       is_divisible: false,
@@ -3762,6 +3884,7 @@
     },
     {
       id: 'service_it_pcb_microsoldering_salvage_proc',
+      short_code: 'S23',
       category: 'cat_essential_services',
       is_food: false,
       is_divisible: false,
@@ -3792,6 +3915,7 @@
     },
     {
       id: 'service_it_microcontroller_low_power_automation_proc',
+      short_code: 'S24',
       category: 'cat_essential_services',
       is_food: false,
       is_divisible: false,
@@ -3822,6 +3946,7 @@
     },
     {
       id: 'service_instruction_technical_literacy_class',
+      short_code: 'S25',
       category: 'cat_essential_services',
       is_food: false,
       is_divisible: false,
@@ -3852,6 +3977,7 @@
     },
     {
       id: 'service_instruction_applied_mathematics_proc',
+      short_code: 'S26',
       category: 'cat_essential_services',
       is_food: false,
       is_divisible: false,
@@ -3882,6 +4008,7 @@
     },
     {
       id: 'service_instruction_combat_medicine_triage_class',
+      short_code: 'S27',
       category: 'cat_essential_services',
       is_food: false,
       is_divisible: false,
@@ -3912,6 +4039,7 @@
     },
     {
       id: 'service_instruction_technical_translation_proc',
+      short_code: 'S28',
       category: 'cat_essential_services',
       is_food: false,
       is_divisible: false,
@@ -3950,6 +4078,7 @@
      *
      * ,{
      *   id: 'doxycycline_hyclate_100mg_capsule',     // Lowercase snake_case semantic slug (WHO/INN, IEC, or Codex; NO brand names)
+     *   short_code: 'M16',                           // Optional 2-4 char radio/paper ticker by category (F, N, C, M, H, W, T, V, S)
      *   category: 'cat_pharma_essential',            // Must be one of the 9 official VALID_CATEGORIES
      *   is_food: false,                              // true = calculates Nutritional Index (IN); false = locks IN at 1.0
      *   is_divisible: false,                         // true = can be split into sub_units; false = traded only in integer units

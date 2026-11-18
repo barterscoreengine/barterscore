@@ -33,6 +33,7 @@ export interface NutritionProperties {
 
 export interface BarterItem extends NutritionProperties {
   id: string;
+  short_code?: string;
   category: CategorySlug;
   is_food: boolean;
   is_divisible: boolean;
@@ -58,7 +59,7 @@ export interface NutritionalIndexBreakdown {
 }
 
 export interface ContextModifierBreakdown {
-  context_modifier: number;
+  mec: number;
   scenario_id: string;
   category_multiplier: number;
   tag_multiplier: number;
@@ -67,6 +68,7 @@ export interface ContextModifierBreakdown {
 
 export interface EvaluationOptions {
   current_lifecycle_remaining?: number;
+  remainingDays?: number;
   scenario?: CrisisScenarioId;
   crisisPhase?: CrisisScenarioId;
   contextModifiers?: Record<string, number>;
@@ -78,10 +80,9 @@ export interface EvaluationReport {
   category: CategorySlug;
   scenario_id: string;
   nutritional_index: number;
-  nutritional_breakdown: NutritionalIndexBreakdown;
   base_score: number;
+  nominal_base_score: number;
   context_modifier: number;
-  context_breakdown: ContextModifierBreakdown;
   final_score: number;
   lifecycle_nominal: number;
   lifecycle_effective: number;
@@ -97,6 +98,7 @@ export interface CatalogScenarioSnapshot {
 
 export interface EvaluatedCatalogEntry {
   id: string;
+  short_code?: string | null;
   category: CategorySlug;
   category_name: string;
   name: string;
@@ -188,9 +190,10 @@ export interface TradeSimulationResult {
 
 export interface ChangeOptionEntry {
   item_id: string;
+  short_code?: string | null;
   category: CategorySlug;
   is_divisible: boolean;
-  is_primary_currency: boolean;
+  is_primary: boolean;
   unit_measure: UnitMeasure;
   sub_units_per_pack: number;
   unit_score: number;
@@ -228,7 +231,7 @@ export interface RegisterCustomItemsReport {
   mode: 'merge' | 'replace';
   registered_count: number;
   total_registry_size: number;
-  validation_errors: string[];
+  validation_report: ValidationReport | null;
 }
 
 export declare class BarterEngine {
@@ -316,19 +319,31 @@ export interface ValidationReport {
 }
 
 export interface ValidatorNamespace {
+  readonly VERSION: string;
+  readonly VALID_CATEGORIES: ReadonlyArray<CategorySlug>;
+  readonly VALID_UNIT_MEASURES: ReadonlyArray<UnitMeasure>;
+  readonly SUPPORTED_LOCALES: ReadonlyArray<SupportedLocaleCode>;
+  readonly BOUNDS: Readonly<Record<string, number>>;
+  readonly PROHIBITED_BRAND_TERMS: ReadonlyArray<string>;
   validateItem(item: unknown): ValidationReport;
   validateDataset(items: unknown[]): ValidationReport;
-  validateLocale(localeCode: string, localeObj: unknown, referenceItems?: BarterItem[]): ValidationReport;
+  validateLocale(
+    localeCodeOrObj: string | LocaleDictionary,
+    localeObjOrReferenceItems?: LocaleDictionary | BarterItem[],
+    referenceItems?: BarterItem[]
+  ): ValidationReport;
 }
 
 export interface LocaleDictionary {
   meta?: {
     locale: string;
     language_name: string;
+    direction?: 'ltr' | 'rtl';
     standard_reference?: string;
   };
   categories: Record<string, { name: string; description: string }>;
   scenarios: Record<string, { name: string; description: string }>;
+  tags?: Record<string, { name: string }>;
   ui: Record<string, string>;
   items: Record<string, { name: string; description: string }>;
 }
@@ -359,7 +374,9 @@ export interface AuditSourcesNamespace {
 }
 
 export declare const VERSION: string;
+export declare const SUPPORTED_LOCALES: ReadonlyArray<SupportedLocaleCode>;
 export declare const Validator: ValidatorNamespace;
 export declare const ItemsCore: BarterItem[];
 export declare const AuditSources: AuditSourcesNamespace;
 export declare const Locales: Readonly<Record<'en-US' | 'pt-BR' | 'es-ES' | 'fr-FR' | 'ru-RU' | 'sw-KE' | 'ar-SA' | 'zh-Hans', LocaleDictionary>>;
+

@@ -1208,7 +1208,9 @@
       function updateStaticLabels() {
         BarterEngine.setLocale(state.locale);
         document.documentElement.lang = state.locale;
-        document.documentElement.dir = state.locale === 'ar-SA' ? 'rtl' : 'ltr';
+        var activeDict = BarterCore && BarterCore.Locales && BarterCore.Locales[state.locale];
+        var activeDir = activeDict && activeDict.meta && activeDict.meta.direction ? activeDict.meta.direction : (state.locale === 'ar-SA' ? 'rtl' : 'ltr');
+        document.documentElement.dir = activeDir;
 
         document.getElementById('uiAppTitle').textContent = uiText(
           'app_title',
@@ -1338,7 +1340,7 @@
           ' | Locale: ' +
           state.locale +
           ' | Col 8: ' +
-          uiText('col_score_base', '1. Pure Baseline (1.0x)') +
+          uiText('col_score_baseline', '1. Pure Baseline (1.0x)') +
           ' · Col 9: ' +
           uiText('col_score_acute', '2. Acute Collapse') +
           ' · Col 10: ' +
@@ -1383,7 +1385,8 @@
 
           for (var i = 0; i < catItems.length; i++) {
             var item = catItems[i];
-            var labelText = itemName(item.id);
+            var codePrefix = item.short_code ? '[' + item.short_code + '] ' : '';
+            var labelText = codePrefix + itemName(item.id);
 
             var o1 = document.createElement('option');
             o1.value = item.id;
@@ -1497,8 +1500,8 @@
           request_lifecycle_remaining: state.requestLifecycle
         });
 
-        var offerDisplayName = itemName(offerItem.id);
-        var reqDisplayName = itemName(requestItem.id);
+        var offerDisplayName = (offerItem.short_code ? '[' + offerItem.short_code + '] ' : '') + itemName(offerItem.id);
+        var reqDisplayName = (requestItem.short_code ? '[' + requestItem.short_code + '] ' : '') + itemName(requestItem.id);
 
         // Direct Settlement Summary Banner
         var deliverLabel = uiText('sim_summary_deliver', 'You Deliver (Offer):');
@@ -1699,12 +1702,16 @@
             headerHtml += '<ul class="change-primary-list">';
             for (var p = 0; p < changeReport.primary_options.length; p++) {
               var pOpt = changeReport.primary_options[p];
+              var pCodeHtml = pOpt.short_code
+                ? '<strong class="mono-num">[' + escapeHtml(pOpt.short_code) + ']</strong> '
+                : '';
               headerHtml +=
                 '<li class="change-primary-item">' +
                 '<span class="change-qty-badge mono-num">' +
                 escapeHtml(formatChangeAmount(pOpt)) +
                 '</span> — ' +
                 '<span>' +
+                pCodeHtml +
                 escapeHtml(itemName(pOpt.item_id)) +
                 '</span>' +
                 '</li>';
@@ -1747,10 +1754,14 @@
 
               for (var k = 0; k < catOpts.length; k++) {
                 var cOpt = catOpts[k];
+                var cCodeHtml = cOpt.short_code
+                  ? '<strong class="mono-num">[' + escapeHtml(cOpt.short_code) + ']</strong> '
+                  : '';
                 headerHtml +=
                   '<div>• <strong class="change-qty-badge mono-num">' +
                   escapeHtml(formatChangeAmount(cOpt)) +
                   '</strong> — ' +
+                  cCodeHtml +
                   escapeHtml(itemName(cOpt.item_id)) +
                   '</div>';
               }
@@ -1787,10 +1798,12 @@
             var locName = itemName(it.id).toLowerCase();
             var locDesc = itemDesc(it.id).toLowerCase();
             var tagsJoined = (it.tags || []).join(' ').toLowerCase();
+            var shortCodeLower = (it.short_code || '').toLowerCase();
 
             if (
               !query ||
               it.id.toLowerCase().indexOf(query) !== -1 ||
+              shortCodeLower.indexOf(query) !== -1 ||
               locName.indexOf(query) !== -1 ||
               locDesc.indexOf(query) !== -1 ||
               tagsJoined.indexOf(query) !== -1
@@ -1906,17 +1919,24 @@
               ? uiText('unit_food', 'Caloric Food')
               : uiText('unit_non_food', 'Utility / Non-Food');
 
+            var shortCodeBadge = item.short_code
+              ? '<strong class="mono-num" style="margin-right:6px;">[' + escapeHtml(item.short_code) + ']</strong>'
+              : '';
+
             htmlParts.push('<tr>');
             htmlParts.push('<td class="mono-num">' + (r + 1) + '</td>');
             htmlParts.push(
               '<td>' +
                 '<div class="item-name-main">' +
+                shortCodeBadge +
                 escapeHtml(itemName(item.id)) +
                 '</div>' +
                 '<div class="item-desc-sub">' +
                 escapeHtml(itemDesc(item.id)) +
                 '</div>' +
-                '<div class="item-meta-line">ID: ' +
+                '<div class="item-meta-line">' +
+                (item.short_code ? 'Code: <strong>' + escapeHtml(item.short_code) + '</strong> · ' : '') +
+                'ID: ' +
                 escapeHtml(item.id) +
                 ' · Tags: ' +
                 escapeHtml((item.tags || []).join(', ')) +
@@ -2212,7 +2232,8 @@
           var perSubAcute = bEvalAcute.final_score / subDiv;
           var perSubRecon = bEvalRecon.final_score / subDiv;
 
-          html += '<tr><td>' + escapeHtml(itemName(bItem.id)) + '</td>';
+          var bCodeBadge = bItem.short_code ? '<strong class="mono-num">[' + escapeHtml(bItem.short_code) + ']</strong> ' : '';
+          html += '<tr><td>' + bCodeBadge + escapeHtml(itemName(bItem.id)) + '</td>';
           for (var q = 0; q < bulkQtys.length; q++) {
             var mult = bulkQtys[q];
             var cellText = fmtTriplet(perSubBase * mult, perSubAcute * mult, perSubRecon * mult);
@@ -2230,7 +2251,8 @@
           var uB = uEvalBase.final_score;
           var uA = uEvalAcute.final_score;
           var uR = uEvalRecon.final_score;
-          html += '<tr><td>' + escapeHtml(itemName(uItem.id)) + '</td>';
+          var uCodeBadge = uItem.short_code ? '<strong class="mono-num">[' + escapeHtml(uItem.short_code) + ']</strong> ' : '';
+          html += '<tr><td>' + uCodeBadge + escapeHtml(itemName(uItem.id)) + '</td>';
           html += '<td><strong>1 un: ' + fmtTriplet(uB, uA, uR) + '</strong></td>';
           html += '<td>2 un: ' + fmtTriplet(uB * 2, uA * 2, uR * 2) + '</td>';
           html += '<td>3 un: ' + fmtTriplet(uB * 3, uA * 3, uR * 3) + '</td>';

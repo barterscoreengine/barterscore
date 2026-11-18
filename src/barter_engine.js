@@ -1183,6 +1183,7 @@
 
       var entry = {
         item_id: item.id,
+        short_code: item.short_code || null,
         category: item.category,
         is_divisible: isDivisible,
         unit_measure: item.unit_measure || 'un',
@@ -1569,6 +1570,7 @@
 
       results.push({
         id: item.id,
+        short_code: item.short_code || null,
         category: item.category,
         category_name: translate(item.category, 'name', loc),
         name: translate(item.id, 'name', loc),

@@ -128,6 +128,14 @@
   var TAG_SLUG_REGEX = /^[a-z][a-z0-9_]{1,64}$/;
 
   /**
+   * Regular expression for optional short operational radio/paper codes by category
+   * (e.g., "F01", "N01", "C01", "M01", "H01", "W01", "T01", "V01", "S01").
+   * Must start with an ASCII letter followed by 1 to 3 alphanumeric characters (total length: 2 to 4 chars).
+   * @type {RegExp}
+   */
+  var SHORT_CODE_REGEX = /^[A-Za-z][A-Za-z0-9]{1,3}$/;
+
+  /**
    * Checks whether a value is a finite number.
    * @param {*} value
    * @returns {boolean}
@@ -237,6 +245,19 @@
             '" detected in item "id" ("' +
             item.id +
             '"). Use WHO/INN, IEC/ANSI, or Codex Alimentarius nomenclature.'
+        );
+      }
+    }
+
+    // 1b. Validate optional short_code (VHF/UHF radio & analog paper ticker, 2-4 alphanumeric chars)
+    if (item.short_code !== undefined && item.short_code !== null) {
+      if (typeof item.short_code !== 'string' || !SHORT_CODE_REGEX.test(item.short_code.trim())) {
+        errors.push(
+          'Item "' +
+            itemId +
+            '" has invalid "short_code" ("' +
+            String(item.short_code) +
+            '"): must be an alphanumeric string of 2 to 4 characters starting with a letter (e.g., "F01", "N01", "C01", "M01", "H01", "W01", "T01", "V01", "S01").'
         );
       }
     }
@@ -552,6 +573,7 @@
     var allWarnings = [];
     var itemReports = [];
     var seenIds = Object.create(null);
+    var seenShortCodes = Object.create(null);
     var validCount = 0;
     var invalidCount = 0;
 
@@ -578,6 +600,24 @@
           report.is_valid = false;
         } else {
           seenIds[normalizedId] = i;
+        }
+      }
+
+      if (currentItem && typeof currentItem.short_code === 'string' && currentItem.short_code.trim() !== '') {
+        var normalizedCode = currentItem.short_code.trim().toUpperCase();
+        if (seenShortCodes[normalizedCode] !== undefined) {
+          var dupCodeError =
+            'Duplicate "short_code" detected: "' +
+            normalizedCode +
+            '" at dataset index ' +
+            i +
+            ' (already defined at index ' +
+            seenShortCodes[normalizedCode] +
+            ').';
+          report.errors.push(dupCodeError);
+          report.is_valid = false;
+        } else {
+          seenShortCodes[normalizedCode] = i;
         }
       }
 
