@@ -48,19 +48,19 @@ $$\text{Vipimo Halisi vya Kupokea} = \frac{\text{Jumla ya Alama Unazotoa}}{\text
 ---
 
 ### Mfano Halisi wa Mahesabu ya Uwandani (Karatasi na Kikokotoo cha Mfukoni — Thamani Zilizohakikiwa 100%)
-Tuseme unafanya mbadilishano katika **Safu 9 — Mporomoko Mkali wa Kijamii (`acute_collapse`)** na unataka kubadilisha **pakiti 50 za Maziwa ya Unga Kamili (`milk_powder_whole_400g`, `400 g` kila moja)** ili upate **Koleo la Kukunja la Chuma cha Pua (`multitool_pliers_stainless_folding_unit`, `kipimo 1`, Haigawanyiki)**:
+Tuseme unafanya mbadilishano katika **Safu 9 — Mporomoko Mkali wa Kijamii (`acute_collapse`)** na unataka kubadilisha **pakiti 50 za `[N01]` Maziwa ya Unga Kamili (`milk_powder_whole_400g`, `400 g` kila moja)** ili upate **`[T01]` Koleo la Kukunja la Chuma cha Pua (`multitool_pliers_stainless_folding_unit`, `kipimo 1`, Haigawanyiki)**:
 
 1. **Hatua ya 1 (Salio Lako):**
-   - Alama iliyochapishwa ya Mporomoko Mkali kwa `milk_powder_whole_400g` = `33,564.72 pts` kwa pakiti (`MEC 2.36x`).
+   - Alama iliyochapishwa ya Mporomoko Mkali kwa `[N01] milk_powder_whole_400g` = `33,564.72 pts` kwa pakiti (`MEC 2.36x`).
    - Zidisha kwa pakiti `50`: $33,564.72 \times 50 = \mathbf{1,678,236.00\text{ pts}}$.
 2. **Hatua ya 2 (Thamani Lengwa):**
-   - Alama iliyochapishwa ya Mporomoko Mkali kwa `multitool_pliers_stainless_folding_unit` = `672,683.44 pts` kwa kipimo (`MEC 1.10x`).
+   - Alama iliyochapishwa ya Mporomoko Mkali kwa `[T01] multitool_pliers_stainless_folding_unit` = `672,683.44 pts` kwa kipimo (`MEC 1.10x`).
 3. **Hatua ya 3 (Mgawanyo na Makabidhiano ya Chenji):**
    - Gawanya Jumla ya Alama Unazotoa kwa Alama Lengwa: $1,678,236.00 \div 672,683.44 = \mathbf{2.495\text{ vipimo}}$.
    - Kwa kuwa koleo la chuma **Haligawanyiki (`Haigawanyiki · kipimo 1`)**, huwezi kukata `0.495` ya chombo.
-   - Unapokea **Koleo 2 kamili** ($2 \times 672,683.44 = 1,345,366.88\text{ pts}$).
+   - Unapokea **Koleo 2 kamili za `[T01]`** ($2 \times 672,683.44 = 1,345,366.88\text{ pts}$).
    - **Chenji Unayodai:** $1,678,236.00 - 1,345,366.88 = \mathbf{332,869.12\text{ pts}}$.
-   - Gawanya `332,869.12 pts` kwa kiwango cha `1 g` cha Mporomoko Mkali cha Chumvi yenye Madini Joto (`salt_sodium_chloride_iodized_1000g` = `158.935 pts/g`) ili kudai **`2,094 g` ya Chumvi yenye Madini Joto** (au gawanya kwa Sukari ya Fuwele `sugar_sucrose_crystal_1000g` kwa `15.525 pts/g` = **`21,440 g` ya Sukari ya Fuwele**) ili kukamilisha mbadilishano bila **hasara yoyote ya thamani (0%)**.
+   - Gawanya `332,869.12 pts` kwa kiwango cha `1 g` cha Mporomoko Mkali cha `[C01]` Chumvi yenye Madini Joto (`salt_sodium_chloride_iodized_1000g` = `158.935 pts/g`) ili kudai **`2,094 g` ya `[C01]` Chumvi yenye Madini Joto** (au gawanya kwa `[C02]` Sukari ya Fuwele `sugar_sucrose_crystal_1000g` kwa `15.525 pts/g` = **`21,440 g` ya `[C02]` Sukari ya Fuwele**) ili kukamilisha mbadilishano bila **hasara yoyote ya thamani (0%)**.
 
 ---
 
@@ -95,17 +95,17 @@ Kwa bidhaa za muda mrefu wa kuhifadhi (`mwaka 1 hadi 5`) ambazo bado zina zaidi 
 
 Bidhaa na huduma 128 zilizoainishwa katika `data/items_core.js` (bidhaa halisi `100` + huduma muhimu za kibinadamu `28`) zimepangwa katika **Makundi 9 Rasmi**:
 
-| Kitambulisho cha Kundi | Jina la Kundi | Jukumu Kuu la Kifizikia | Mabadiliko Katika Awamu za Dharura (`MEC`) |
+| Kitambulisho cha Kundi (`short_code`) | Jina la Kundi | Jukumu Kuu la Kifizikia | Mabadiliko Katika Awamu za Dharura (`MEC`) |
 | :--- | :--- | :--- | :--- |
-| `cat_staple_foods` | **Vyakula Vikuu vya Kalori na Protini** | Kuokoa maisha kwa kalori za jumla (`kcal`), protini za mimea na mafuta ya kupikia (vipimo vya `1000 g` / `500 ml`). | Mahitaji ya juu na thabiti (`1.2x–1.35x` wakati wa mporomoko mkali; `1.0x–1.1x` wakati wa ujenzi mpya). |
-| `cat_critical_nutrition` | **Lishe Maalum na ya Kimatibabu** | Vyakula visivyohitaji kupikwa (`CP = 1.0`), nyama/samaki wa makopo, maziwa ya watoto wachanga na vitamini. | Hupata nyongeza ya `1.4x` wakati wa mporomoko mkali nishati ya kupikia au maji salama yanapoadimika. |
-| `cat_spices_morale` | **Madini ya Chumvi, Viungo na Bidhaa za Faraja** | Kloridi ya sodiamu (`chumvi`), sukari, asali, kahawa, chai, kakao na ethanoli iliyosafishwa. | Chumvi na sukari hutumika kama **chenji ndogondogo ya ulimwengu wote (`g`)**; bidhaa za faraja hupanda wakati wa msongo. |
-| `cat_pharma_essential` | **Dawa Muhimu (WHO EML / INN / KEML)** | Antibiotiki za mwili mzima, dawa za maumivu/homa, chumvi za ORS, dawa za magonjwa sugu na minyoo. | Kizidisho cha juu zaidi cha kuokoa maisha (`2.0x–2.2x`) wakati wa mporomoko mkali na milipuko ya magonjwa. |
-| `cat_trauma_hygiene` | **Huduma ya Majeraha, Dawa za Viini na Usafi** | Mikanda ya kufunga damu (tourniquets), bandeji tasa, ethanoli 70% / klorheksidini, barakoa za N95, sabuni na klorini. | Vifaa vya majeraha na usafi hupanda hadi `1.8x–2.2x` katika mporomoko mkali; hubaki `1.2x` katika ujenzi mpya. |
-| `cat_water_fire_shelter` | **Usafishaji wa Maji, Moto na Makazi ya Joto** | Maji safi yaliyofungwa, vidonge vya NaDCC, vichujio vya udongo, vijiti vya kuwashia moto, gesi ya butani na maturubai. | Maji na usafishaji wake vina kizidisho cha juu zaidi cha uhai (`2.5x`) wakati wa mporomoko mkali au ukame. |
-| `cat_tools_energy_comms` | **Zana za Mkono, Nishati Bila Gridi na Mawasiliano** | Visu na shoka za chuma cha kaboni, koleo, kamba za parakodi, betri za AA/AAA/18650, paneli za jua, redio za VHF/UHF. | Muhimu wakati wa mporomoko (`1.3x–1.5x`) na huongezeka zaidi (`1.6x–1.8x`) wakati wa ujenzi mpya wa kilimo na miundombinu. |
-| `cat_store_of_value` | **Hifadhi ya Thamani, Madini ya Thamani na Kumbukumbu** | Fedha na dhahabu safi `.999`, mbegu za asili zisizo chotara, miwani ya kusomea na maktaba za kidijitali bila mtandao. | **Mabadiliko Makali ya Awamu:** Madini ya thamani hushuka hadi **`0.01x`** katika `acute_collapse` (huwezi kula dhahabu/fedha) na hupanda hadi **`5.00x`** katika `economic_reconstruction`. |
-| `cat_essential_services` | **Huduma Muhimu za Kibinadamu, Tiba, TEHAMA Bila Mtandao na Ufundi** | Upasuaji wa majeraha, meno, ukunga, ukarabati wa maji (WASH), ufundi wa sola/mitambo, TEHAMA/vifaa vya elektroniki, mafunzo ya kiufundi na ulinzi (`Bidhaa 101–128`). | Upasuaji, ukunga, meno, maji na ulinzi hupanda katika `acute_collapse` (`hadi 2.21x`); TEHAMA bila mtandao, mafunzo, uhandisi, uhunzi, ujenzi na kilimo/mifugo huongoza katika `economic_reconstruction` (`hadi 2.32x`). |
+| `cat_staple_foods` (**`F01–F20`**) | **Vyakula Vikuu vya Kalori na Protini** | Kuokoa maisha kwa kalori za jumla (`kcal`), protini za mimea na mafuta ya kupikia (vipimo vya `1000 g` / `500 ml`). | Mahitaji ya juu na thabiti (`1.2x–1.35x` wakati wa mporomoko mkali; `1.0x–1.1x` wakati wa ujenzi mpya). |
+| `cat_critical_nutrition` (**`N01–N05`**) | **Lishe Maalum na ya Kimatibabu** | Vyakula visivyohitaji kupikwa (`CP = 1.0`), nyama/samaki wa makopo, maziwa ya watoto wachanga na vitamini. | Hupata nyongeza ya `1.4x` wakati wa mporomoko mkali nishati ya kupikia au maji salama yanapoadimika. |
+| `cat_spices_morale` (**`C01–C15`**) | **Madini ya Chumvi, Viungo na Bidhaa za Faraja** | Kloridi ya sodiamu (`chumvi`), sukari, asali, kahawa, chai, kakao na ethanoli iliyosafishwa. | Chumvi na sukari hutumika kama **chenji ndogondogo ya ulimwengu wote (`g`)**; bidhaa za faraja hupanda wakati wa msongo. |
+| `cat_pharma_essential` (**`M01–M15`**) | **Dawa Muhimu (WHO EML / INN / KEML)** | Antibiotiki za mwili mzima, dawa za maumivu/homa, chumvi za ORS, dawa za magonjwa sugu na minyoo. | Kizidisho cha juu zaidi cha kuokoa maisha (`2.0x–2.2x`) wakati wa mporomoko mkali na milipuko ya magonjwa. |
+| `cat_trauma_hygiene` (**`H01–H15`**) | **Huduma ya Majeraha, Dawa za Viini na Usafi** | Mikanda ya kufunga damu (tourniquets), bandeji tasa, ethanoli 70% / klorheksidini, barakoa za N95, sabuni na klorini. | Vifaa vya majeraha na usafi hupanda hadi `1.8x–2.2x` katika mporomoko mkali; hubaki `1.2x` katika ujenzi mpya. |
+| `cat_water_fire_shelter` (**`W01–W10`**) | **Usafishaji wa Maji, Moto na Makazi ya Joto** | Maji safi yaliyofungwa, vidonge vya NaDCC, vichujio vya udongo, vijiti vya kuwashia moto, gesi ya butani na maturubai. | Maji na usafishaji wake vina kizidisho cha juu zaidi cha uhai (`2.5x`) wakati wa mporomoko mkali au ukame. |
+| `cat_tools_energy_comms` (**`T01–T14`**) | **Zana za Mkono, Nishati Bila Gridi na Mawasiliano** | Visu na shoka za chuma cha kaboni, koleo, kamba za parakodi, betri za AA/AAA/18650, paneli za jua, redio za VHF/UHF. | Muhimu wakati wa mporomoko (`1.3x–1.5x`) na huongezeka zaidi (`1.6x–1.8x`) wakati wa ujenzi mpya wa kilimo na miundombinu. |
+| `cat_store_of_value` (**`V01–V06`**) | **Hifadhi ya Thamani, Madini ya Thamani na Kumbukumbu** | Fedha na dhahabu safi `.999`, mbegu za asili zisizo chotara, miwani ya kusomea na maktaba za kidijitali bila mtandao. | **Mabadiliko Makali ya Awamu:** Madini ya thamani hushuka hadi **`0.01x`** katika `acute_collapse` (huwezi kula dhahabu/fedha) na hupanda hadi **`5.00x`** katika `economic_reconstruction`. |
+| `cat_essential_services` (**`S01–S28`**) | **Huduma Muhimu za Kibinadamu, Tiba, TEHAMA Bila Mtandao na Ufundi** | Upasuaji wa majeraha, meno, ukunga, ukarabati wa maji (WASH), ufundi wa sola/mitambo, TEHAMA/vifaa vya elektroniki, mafunzo ya kiufundi na ulinzi (`Bidhaa 101–128`). | Upasuaji, ukunga, meno, maji na ulinzi hupanda katika `acute_collapse` (`hadi 2.21x`); TEHAMA bila mtandao, mafunzo, uhandisi, uhunzi, ujenzi na kilimo/mifugo huongoza katika `economic_reconstruction` (`hadi 2.32x`). |
 
 ---
 
@@ -113,15 +113,15 @@ Bidhaa na huduma 128 zilizoainishwa katika `data/items_core.js` (bidhaa halisi `
 
 Kwa sababu **Jedwali Kuu la Thamani za Mbadilishano** lililochapishwa linaonyesha miktadha yote 3 ya dharura sambamba (**Safu 8: Msingi Halisi `1.0x`**, **Safu 9: Mporomoko Mkali** na **Safu 10: Ujenzi Mpya wa Kiuchumi**), kila kisanduku hapa chini kinatoa alama halisi kwa mpangilio wa **`Safu 8 Msingi | Safu 9 Mporomoko | Safu 10 Ujenzi`** kwa bidhaa 7 kuu za chenji:
 
-| Bidhaa ya Marejeo ya Chenji (`id`) | `1 g / 1 ml / 1 un` (**Safu 8 \| 9 \| 10**) | `10 g / 10 ml` (**Safu 8 \| 9 \| 10**) | `50 g / 50 ml` (**Safu 8 \| 9 \| 10**) | `100 g / 100 ml` (**Safu 8 \| 9 \| 10**) | `250 g / 250 ml` (**Safu 8 \| 9 \| 10**) | `500 g / 500 ml` (**Safu 8 \| 9 \| 10**) | `1000 g / 1000 ml` (**Safu 8 \| 9 \| 10**) |
+| Bidhaa ya Marejeo ya Chenji (`[short_code]` na `id`) | `1 g / 1 ml / 1 un` (**Safu 8 \| 9 \| 10**) | `10 g / 10 ml` (**Safu 8 \| 9 \| 10**) | `50 g / 50 ml` (**Safu 8 \| 9 \| 10**) | `100 g / 100 ml` (**Safu 8 \| 9 \| 10**) | `250 g / 250 ml` (**Safu 8 \| 9 \| 10**) | `500 g / 500 ml` (**Safu 8 \| 9 \| 10**) | `1000 g / 1000 ml` (**Safu 8 \| 9 \| 10**) |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Chumvi Safi Yenye Madini Joto** (`salt_sodium_chloride_iodized_1000g`) | **`39.9 \| 158.9 \| 78.1`** | `399 \| 1589 \| 781` | `1994 \| 7947 \| 3904` | `3989 \| 15893 \| 7808` | `9972 \| 39734 \| 19519` | `19943 \| 79467 \| 39039` | `39886 \| 158935 \| 78077` |
-| **Sukari Nyeupe ya Fuwele** (`sugar_sucrose_crystal_1000g`) | **`5.6 \| 15.5 \| 14.4`** | `56.4 \| 155 \| 144` | `282 \| 776 \| 718` | `564 \| 1553 \| 1436` | `1411 \| 3881 \| 3590` | `2821 \| 7763 \| 7180` | `5643 \| 15525 \| 14360` |
-| **Mchele Mweupe Uliokobolewa** (`rice_white_polished_raw_1000g`) | **`5.4 \| 8.8 \| 6.3`** | `54.5 \| 88.5 \| 62.6` | `272 \| 442 \| 313` | `545 \| 885 \| 626` | `1361 \| 2212 \| 1566` | `2723 \| 4425 \| 3131` | `5446 \| 8849 \| 6263` |
-| **Maji Safi ya Kunywa Yaliyofungwa** (`water_potable_sealed_1000ml`) | **`5.7 \| 16.5 \| 6.5`** | `56.8 \| 165 \| 65.3` | `284 \| 823 \| 326` | `568 \| 1646 \| 653` | `1419 \| 4115 \| 1632` | `2838 \| 8229 \| 3263` | `5675 \| 16458 \| 6527` |
-| **Ethanoli ya Kuua Viini 70%** (`ethanol_antiseptic_70pct_100ml`) | **`984 \| 5305 \| 1082`** | `9835 \| 53050 \| 10819` | `49175 \| 265250 \| 54093` | `98350 \| 530500 \| 108185` | `245875 \| 1326250 \| 270463` | `491750 \| 2652500 \| 540925` | `983500 \| 5305001 \| 1081850` |
-| **Kidonge cha Parasetamoli 500 mg** (`paracetamol_500mg_tablet`) | **`1 un: 108151 \| 204406 \| 129781`** | `2 un: 216302 \| 408811 \| 259563` | `3 un: 324453 \| 613217 \| 389344` | `5 un: 540756 \| 1022028 \| 648907` | `10 un: 1081512 \| 2044057 \| 1297814` | — | — |
-| **Kidonge cha Kusafisha Maji NaDCC 67 mg** (`water_purification_nadcc_tablet_unit`) | **`1 un: 199818 \| 863214 \| 219800`** | `2 un: 399636 \| 1726428 \| 439600` | `3 un: 599454 \| 2589642 \| 659400` | `5 un: 999090 \| 4316071 \| 1098999` | `10 un: 1998181 \| 8632141 \| 2197999` | — | — |
+| **`[C01]` Chumvi Safi Yenye Madini Joto** (`salt_sodium_chloride_iodized_1000g`) | **`39.9 \| 158.9 \| 78.1`** | `399 \| 1589 \| 781` | `1994 \| 7947 \| 3904` | `3989 \| 15893 \| 7808` | `9972 \| 39734 \| 19519` | `19943 \| 79467 \| 39039` | `39886 \| 158935 \| 78077` |
+| **`[C02]` Sukari Nyeupe ya Fuwele** (`sugar_sucrose_crystal_1000g`) | **`5.6 \| 15.5 \| 14.4`** | `56.4 \| 155 \| 144` | `282 \| 776 \| 718` | `564 \| 1553 \| 1436` | `1411 \| 3881 \| 3590` | `2821 \| 7763 \| 7180` | `5643 \| 15525 \| 14360` |
+| **`[F01]` Mchele Mweupe Uliokobolewa** (`rice_white_polished_raw_1000g`) | **`5.4 \| 8.8 \| 6.3`** | `54.5 \| 88.5 \| 62.6` | `272 \| 442 \| 313` | `545 \| 885 \| 626` | `1361 \| 2212 \| 1566` | `2723 \| 4425 \| 3131` | `5446 \| 8849 \| 6263` |
+| **`[W01]` Maji Safi ya Kunywa Yaliyofungwa** (`water_potable_sealed_1000ml`) | **`5.7 \| 16.5 \| 6.5`** | `56.8 \| 165 \| 65.3` | `284 \| 823 \| 326` | `568 \| 1646 \| 653` | `1419 \| 4115 \| 1632` | `2838 \| 8229 \| 3263` | `5675 \| 16458 \| 6527` |
+| **`[H01]` Ethanoli ya Kuua Viini 70%** (`ethanol_antiseptic_70pct_100ml`) | **`984 \| 5305 \| 1082`** | `9835 \| 53050 \| 10819` | `49175 \| 265250 \| 54093` | `98350 \| 530500 \| 108185` | `245875 \| 1326250 \| 270463` | `491750 \| 2652500 \| 540925` | `983500 \| 5305001 \| 1081850` |
+| **`[M04]` Kidonge cha Parasetamoli 500 mg** (`paracetamol_500mg_tablet`) | **`1 un: 108151 \| 204406 \| 129781`** | `2 un: 216302 \| 408811 \| 259563` | `3 un: 324453 \| 613217 \| 389344` | `5 un: 540756 \| 1022028 \| 648907` | `10 un: 1081512 \| 2044057 \| 1297814` | — | — |
+| **`[W02]` Kidonge cha Kusafisha Maji NaDCC 67 mg** (`water_purification_nadcc_tablet_unit`) | **`1 un: 199818 \| 863214 \| 219800`** | `2 un: 399636 \| 1726428 \| 439600` | `3 un: 599454 \| 2589642 \| 659400` | `5 un: 999090 \| 4316071 \| 1098999` | `10 un: 1998181 \| 8632141 \| 2197999` | — | — |
 
 ---
 

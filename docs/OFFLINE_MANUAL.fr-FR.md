@@ -48,19 +48,19 @@ $$\text{Unités Exactes à Recevoir} = \frac{\text{Total des Points Offerts}}{\t
 ---
 
 ### Exemple Pratique de Terrain (Papier et Calculatrice de Poche — Valeurs 100 % Auditées)
-Supposons que vous opériez dans la **Colonne 9 — Effondrement Civil Aigu (`acute_collapse`)** et souhaitiez échanger **50 sachets de Lait Entier en Poudre (`milk_powder_whole_400g`, `400 g` chacun)** contre des **Pinces Multifonctions Pliables en Acier Inoxydable (`multitool_pliers_stainless_folding_unit`, `1 un`, Indivisible)** :
+Supposons que vous opériez dans la **Colonne 9 — Effondrement Civil Aigu (`acute_collapse`)** et souhaitiez échanger **50 sachets de `[N01]` Lait Entier en Poudre (`milk_powder_whole_400g`, `400 g` chacun)** contre des **`[T01]` Pinces Multifonctions Pliables en Acier Inoxydable (`multitool_pliers_stainless_folding_unit`, `1 un`, Indivisible)** :
 
 1. **Étape 1 (Votre Crédit) :**
-   - Score imprimé en Effondrement Aigu de `milk_powder_whole_400g` = `33 564,72 pts` par sachet (`MEC 2,36x`).
+   - Score imprimé en Effondrement Aigu de `[N01] milk_powder_whole_400g` = `33 564,72 pts` par sachet (`MEC 2,36x`).
    - Multipliez par `50` sachets : $33\,564,72 \times 50 = \mathbf{1\,678\,236,00\text{ pts}}$.
 2. **Étape 2 (Valeur Cible) :**
-   - Score imprimé en Effondrement Aigu de `multitool_pliers_stainless_folding_unit` = `672 683,44 pts` par unité (`MEC 1,10x`).
+   - Score imprimé en Effondrement Aigu de `[T01] multitool_pliers_stainless_folding_unit` = `672 683,44 pts` par unité (`MEC 1,10x`).
 3. **Étape 3 (Division et Règlement) :**
    - Divisez le Total des Points Offerts par le Score Cible : $1\,678\,236,00 \div 672\,683,44 = \mathbf{2,495\text{ unités}}$.
    - Comme une pince en acier est **Indivisible (`Indivisible · 1 un`)**, il est impossible de couper `0,495` d'un outil.
-   - Vous recevez **2 Pinces Multifonctions entières** ($2 \times 672\,683,44 = 1\,345\,366,88\text{ pts}$).
+   - Vous recevez **2 `[T01]` Pinces Multifonctions entières** ($2 \times 672\,683,44 = 1\,345\,366,88\text{ pts}$).
    - **Monnaie (Appoint) qui Vous Est Due :** $1\,678\,236,00 - 1\,345\,366,88 = \mathbf{332\,869,12\text{ pts}}$.
-   - Divisez `332 869,12 pts` par le taux à `1 g` en Effondrement Aigu du Sel Raffiné Iodé (`salt_sodium_chloride_iodized_1000g` = `158,935 pts/g`) pour exiger **`2 094 g` de Sel Iodé** (ou divisez par le Sucre Cristallisé `sugar_sucrose_crystal_1000g` à `15,525 pts/g` = **`21 440 g` de Sucre Cristallisé**) afin de clôturer l'échange avec **0 % de perte de valeur**.
+   - Divisez `332 869,12 pts` par le taux à `1 g` en Effondrement Aigu du `[C01]` Sel Raffiné Iodé (`salt_sodium_chloride_iodized_1000g` = `158,935 pts/g`) pour exiger **`2 094 g` de `[C01]` Sel Iodé** (ou divisez par le `[C02]` Sucre Cristallisé `sugar_sucrose_crystal_1000g` à `15,525 pts/g` = **`21 440 g` de `[C02]` Sucre Cristallisé**) afin de clôturer l'échange avec **0 % de perte de valeur**.
 
 ---
 
@@ -95,17 +95,17 @@ Pour les biens à longue durée de conservation (`1 à 5 ans`) disposant encore 
 
 Les 128 articles standardisés dans `data/items_core.js` (`100` biens matériels + `28` services humains essentiels) sont organisés en **9 Catégories Canoniques** :
 
-| Identifiant de Catégorie | Nom de la Catégorie | Rôle Physique Fondamental | Comportement selon les Phases de Crise (`MEC`) |
+| Identifiant de Catégorie (`short_code`) | Nom de la Catégorie | Rôle Physique Fondamental | Comportement selon les Phases de Crise (`MEC`) |
 | :--- | :--- | :--- | :--- |
-| `cat_staple_foods` | **Aliments Caloriques de Base et Protéines** | Survie calorique de masse (`kcal`), protéines végétales et lipides de cuisson (unités `1000 g` / `500 ml`). | Demande soutenue élevée (`1,2x–1,35x` en effondrement aigu ; `1,0x–1,1x` en reconstruction). |
-| `cat_critical_nutrition` | **Nutrition Critique et Clinique** | Rations sans préparation (`CP = 1,0`), conserves de viande/poisson, préparations pour nourrissons et multivitamines. | Prime de `1,4x` en effondrement aigu lorsque le combustible de cuisson ou l'eau salubre manque. |
-| `cat_spices_morale` | **Électrolytes, Condiments et Confort Moral** | Chlorure de sodium (`sel`), saccharose, miel, café, thé, cacao et éthanol distillé. | Le sel et le sucre servent de **monnaie d'appoint universelle divisible (`g`)** ; les biens de moral augmentent en état de siège. |
-| `cat_pharma_essential` | **Médicaments Essentiels (DCI / OMS / ANSM)** | Antibiotiques systémiques, analgésiques, sels de réhydratation orale (SRO), traitements chroniques et antiparasitaires. | Multiplicateur vital maximal (`2,0x–2,2x`) en effondrement aigu et lors d'épidémies infectieuses. |
-| `cat_trauma_hygiene` | **Soins de Traumatologie, Antiseptiques et Assainissement** | Garrots, compresses stériles, éthanol 70 % / chlorhexidine, masques FFP2/N95, savon et eau de Javel. | La traumatologie et l'antisepsie bondissent à `1,8x–2,2x` en effondrement aigu ; stables à `1,2x` en reconstruction. |
-| `cat_water_fire_shelter` | **Purification de l'Eau, Allumage et Abri Thermique** | Eau potable scellée, comprimés NaDCC, filtres céramiques, tiges de ferrocérium, butane et bâches. | L'eau et la purification atteignent le multiplicateur de survie le plus élevé (`2,5x`) en effondrement aigu ou sécheresse. |
-| `cat_tools_energy_comms` | **Outillage de Terrain, Énergie Hors-Réseau et Comms** | Acier carbone pleine soie, pinces multifonctions, paracorde, cellules IEC AA/AAA/18650, panneaux solaires, radios VHF/UHF. | Essentiels en effondrement (`1,3x–1,5x`) et progressent encore (`1,6x–1,8x`) lors de la reconstruction agraire/infrastructures. |
-| `cat_store_of_value` | **Réserve de Valeur, Métaux Précieux et Archives** | Argent/or fractionnaire `.999`, semences reproductibles non hybrides, lunettes de lecture et archives hors-ligne. | **Inversion Stricte de Phase :** Les métaux précieux tombent à **`0,01x`** en `acute_collapse` (on ne mange pas d'or/argent) et bondissent à **`5,00x`** en `economic_reconstruction`. |
-| `cat_essential_services` | **Services Humains Essentiels, Actes Cliniques, IT Hors-Réseau et Travail Technique** | Chirurgie de traumatologie, soins dentaires, obstétrique, réparation WASH, révision solaire/mécanique, IT hors-réseau/microélectronique, enseignement technique et garde tactique (`Articles 101–128`). | La traumatologie, l'obstétrique, la dentisterie, le WASH et la sécurité bondissent en `acute_collapse` (`jusqu'à 2,21x`) ; l'IT hors-réseau, l'enseignement, l'ingénierie, la métallurgie et l'agronomie bondissent en `economic_reconstruction` (`jusqu'à 2,32x`). |
+| `cat_staple_foods` (**`F01–F20`**) | **Aliments Caloriques de Base et Protéines** | Survie calorique de masse (`kcal`), protéines végétales et lipides de cuisson (unités `1000 g` / `500 ml`). | Demande soutenue élevée (`1,2x–1,35x` en effondrement aigu ; `1,0x–1,1x` en reconstruction). |
+| `cat_critical_nutrition` (**`N01–N05`**) | **Nutrition Critique et Clinique** | Rations sans préparation (`CP = 1,0`), conserves de viande/poisson, préparations pour nourrissons et multivitamines. | Prime de `1,4x` en effondrement aigu lorsque le combustible de cuisson ou l'eau salubre manque. |
+| `cat_spices_morale` (**`C01–C15`**) | **Électrolytes, Condiments et Confort Moral** | Chlorure de sodium (`sel`), saccharose, miel, café, thé, cacao et éthanol distillé. | Le sel et le sucre servent de **monnaie d'appoint universelle divisible (`g`)** ; les biens de moral augmentent en état de siège. |
+| `cat_pharma_essential` (**`M01–M15`**) | **Médicaments Essentiels (DCI / OMS / ANSM)** | Antibiotiques systémiques, analgésiques, sels de réhydratation orale (SRO), traitements chroniques et antiparasitaires. | Multiplicateur vital maximal (`2,0x–2,2x`) en effondrement aigu et lors d'épidémies infectieuses. |
+| `cat_trauma_hygiene` (**`H01–H15`**) | **Soins de Traumatologie, Antiseptiques et Assainissement** | Garrots, compresses stériles, éthanol 70 % / chlorhexidine, masques FFP2/N95, savon et eau de Javel. | La traumatologie et l'antisepsie bondissent à `1,8x–2,2x` en effondrement aigu ; stables à `1,2x` en reconstruction. |
+| `cat_water_fire_shelter` (**`W01–W10`**) | **Purification de l'Eau, Allumage et Abri Thermique** | Eau potable scellée, comprimés NaDCC, filtres céramiques, tiges de ferrocérium, butane et bâches. | L'eau et la purification atteignent le multiplicateur de survie le plus élevé (`2,5x`) en effondrement aigu ou sécheresse. |
+| `cat_tools_energy_comms` (**`T01–T14`**) | **Outillage de Terrain, Énergie Hors-Réseau et Comms** | Acier carbone pleine soie, pinces multifonctions, paracorde, cellules IEC AA/AAA/18650, panneaux solaires, radios VHF/UHF. | Essentiels en effondrement (`1,3x–1,5x`) et progressent encore (`1,6x–1,8x`) lors de la reconstruction agraire/infrastructures. |
+| `cat_store_of_value` (**`V01–V06`**) | **Réserve de Valeur, Métaux Précieux et Archives** | Argent/or fractionnaire `.999`, semences reproductibles non hybrides, lunettes de lecture et archives hors-ligne. | **Inversion Stricte de Phase :** Les métaux précieux tombent à **`0,01x`** en `acute_collapse` (on ne mange pas d'or/argent) et bondissent à **`5,00x`** en `economic_reconstruction`. |
+| `cat_essential_services` (**`S01–S28`**) | **Services Humains Essentiels, Actes Cliniques, IT Hors-Réseau et Travail Technique** | Chirurgie de traumatologie, soins dentaires, obstétrique, réparation WASH, révision solaire/mécanique, IT hors-réseau/microélectronique, enseignement technique et garde tactique (`Articles 101–128`). | La traumatologie, l'obstétrique, la dentisterie, le WASH et la sécurité bondissent en `acute_collapse` (`jusqu'à 2,21x`) ; l'IT hors-réseau, l'enseignement, l'ingénierie, la métallurgie et l'agronomie bondissent en `economic_reconstruction` (`jusqu'à 2,32x`). |
 
 ---
 
@@ -113,15 +113,15 @@ Les 128 articles standardisés dans `data/items_core.js` (`100` biens matériels
 
 Comme la **Grille Générale de Cotation** imprimée affiche les 3 scénarios de crise côte à côte (**Col 8 : Base Pure `1,0x`**, **Col 9 : Effondrement Aigu** et **Col 10 : Reconstruction Économique**), chaque cellule ci-dessous fournit les points exacts pré-calculés pour **`Col 8 Base | Col 9 Aigu | Col 10 Recon`** sur les 7 principaux articles d'appoint :
 
-| Article de Référence Divisible / Unitaire (`id`) | `1 g / 1 ml / 1 un` (**Col 8 \| 9 \| 10**) | `10 g / 10 ml` (**Col 8 \| 9 \| 10**) | `50 g / 50 ml` (**Col 8 \| 9 \| 10**) | `100 g / 100 ml` (**Col 8 \| 9 \| 10**) | `250 g / 250 ml` (**Col 8 \| 9 \| 10**) | `500 g / 500 ml` (**Col 8 \| 9 \| 10**) | `1000 g / 1000 ml` (**Col 8 \| 9 \| 10**) |
+| Article de Référence Divisible / Unitaire (`[short_code]` et `id`) | `1 g / 1 ml / 1 un` (**Col 8 \| 9 \| 10**) | `10 g / 10 ml` (**Col 8 \| 9 \| 10**) | `50 g / 50 ml` (**Col 8 \| 9 \| 10**) | `100 g / 100 ml` (**Col 8 \| 9 \| 10**) | `250 g / 250 ml` (**Col 8 \| 9 \| 10**) | `500 g / 500 ml` (**Col 8 \| 9 \| 10**) | `1000 g / 1000 ml` (**Col 8 \| 9 \| 10**) |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Sel Raffiné Iodé** (`salt_sodium_chloride_iodized_1000g`) | **`39.9 \| 158.9 \| 78.1`** | `399 \| 1589 \| 781` | `1994 \| 7947 \| 3904` | `3989 \| 15893 \| 7808` | `9972 \| 39734 \| 19519` | `19943 \| 79467 \| 39039` | `39886 \| 158935 \| 78077` |
-| **Sucre Blanc Cristallisé** (`sugar_sucrose_crystal_1000g`) | **`5.6 \| 15.5 \| 14.4`** | `56.4 \| 155 \| 144` | `282 \| 776 \| 718` | `564 \| 1553 \| 1436` | `1411 \| 3881 \| 3590` | `2821 \| 7763 \| 7180` | `5643 \| 15525 \| 14360` |
-| **Riz Blanc Poli Cru** (`rice_white_polished_raw_1000g`) | **`5.4 \| 8.8 \| 6.3`** | `54.5 \| 88.5 \| 62.6` | `272 \| 442 \| 313` | `545 \| 885 \| 626` | `1361 \| 2212 \| 1566` | `2723 \| 4425 \| 3131` | `5446 \| 8849 \| 6263` |
-| **Eau Potable Scellée** (`water_potable_sealed_1000ml`) | **`5.7 \| 16.5 \| 6.5`** | `56.8 \| 165 \| 65.3` | `284 \| 823 \| 326` | `568 \| 1646 \| 653` | `1419 \| 4115 \| 1632` | `2838 \| 8229 \| 3263` | `5675 \| 16458 \| 6527` |
-| **Éthanol Antiseptique 70 %** (`ethanol_antiseptic_70pct_100ml`) | **`984 \| 5305 \| 1082`** | `9835 \| 53050 \| 10819` | `49175 \| 265250 \| 54093` | `98350 \| 530500 \| 108185` | `245875 \| 1326250 \| 270463` | `491750 \| 2652500 \| 540925` | `983500 \| 5305001 \| 1081850` |
-| **Comprimé Paracétamol 500 mg** (`paracetamol_500mg_tablet`) | **`1 un: 108151 \| 204406 \| 129781`** | `2 un: 216302 \| 408811 \| 259563` | `3 un: 324453 \| 613217 \| 389344` | `5 un: 540756 \| 1022028 \| 648907` | `10 un: 1081512 \| 2044057 \| 1297814` | — | — |
-| **Comprimé Purification Eau NaDCC 67 mg** (`water_purification_nadcc_tablet_unit`) | **`1 un: 199818 \| 863214 \| 219800`** | `2 un: 399636 \| 1726428 \| 439600` | `3 un: 599454 \| 2589642 \| 659400` | `5 un: 999090 \| 4316071 \| 1098999` | `10 un: 1998181 \| 8632141 \| 2197999` | — | — |
+| **`[C01]` Sel Raffiné Iodé** (`salt_sodium_chloride_iodized_1000g`) | **`39.9 \| 158.9 \| 78.1`** | `399 \| 1589 \| 781` | `1994 \| 7947 \| 3904` | `3989 \| 15893 \| 7808` | `9972 \| 39734 \| 19519` | `19943 \| 79467 \| 39039` | `39886 \| 158935 \| 78077` |
+| **`[C02]` Sucre Blanc Cristallisé** (`sugar_sucrose_crystal_1000g`) | **`5.6 \| 15.5 \| 14.4`** | `56.4 \| 155 \| 144` | `282 \| 776 \| 718` | `564 \| 1553 \| 1436` | `1411 \| 3881 \| 3590` | `2821 \| 7763 \| 7180` | `5643 \| 15525 \| 14360` |
+| **`[F01]` Riz Blanc Poli Cru** (`rice_white_polished_raw_1000g`) | **`5.4 \| 8.8 \| 6.3`** | `54.5 \| 88.5 \| 62.6` | `272 \| 442 \| 313` | `545 \| 885 \| 626` | `1361 \| 2212 \| 1566` | `2723 \| 4425 \| 3131` | `5446 \| 8849 \| 6263` |
+| **`[W01]` Eau Potable Scellée** (`water_potable_sealed_1000ml`) | **`5.7 \| 16.5 \| 6.5`** | `56.8 \| 165 \| 65.3` | `284 \| 823 \| 326` | `568 \| 1646 \| 653` | `1419 \| 4115 \| 1632` | `2838 \| 8229 \| 3263` | `5675 \| 16458 \| 6527` |
+| **`[H01]` Éthanol Antiseptique 70 %** (`ethanol_antiseptic_70pct_100ml`) | **`984 \| 5305 \| 1082`** | `9835 \| 53050 \| 10819` | `49175 \| 265250 \| 54093` | `98350 \| 530500 \| 108185` | `245875 \| 1326250 \| 270463` | `491750 \| 2652500 \| 540925` | `983500 \| 5305001 \| 1081850` |
+| **`[M04]` Comprimé Paracétamol 500 mg** (`paracetamol_500mg_tablet`) | **`1 un: 108151 \| 204406 \| 129781`** | `2 un: 216302 \| 408811 \| 259563` | `3 un: 324453 \| 613217 \| 389344` | `5 un: 540756 \| 1022028 \| 648907` | `10 un: 1081512 \| 2044057 \| 1297814` | — | — |
+| **`[W02]` Comprimé Purification Eau NaDCC 67 mg** (`water_purification_nadcc_tablet_unit`) | **`1 un: 199818 \| 863214 \| 219800`** | `2 un: 399636 \| 1726428 \| 439600` | `3 un: 599454 \| 2589642 \| 659400` | `5 un: 999090 \| 4316071 \| 1098999` | `10 un: 1998181 \| 8632141 \| 2197999` | — | — |
 
 ---
 

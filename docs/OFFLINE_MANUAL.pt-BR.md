@@ -48,19 +48,19 @@ $$\text{Unidades Exatas a Receber} = \frac{\text{Total de Pontos Ofertados}}{\te
 ---
 
 ### Exemplo Prático Resolvido (Papel e Calculadora de Bolso — Valores 100% Auditados no Motor)
-Suponha que você esteja operando na **Coluna 9 — Colapso Civil Agudo (`acute_collapse`)** e deseje trocar **50 pacotes de Leite em Pó Integral Instantâneo (`milk_powder_whole_400g`, `400 g` cada)** por **Alicate Multiferramenta Dobrável em Aço Inoxidável Temperado (`multitool_pliers_stainless_folding_unit`, `1 un`, Indivisível)**:
+Suponha que você esteja operando na **Coluna 9 — Colapso Civil Agudo (`acute_collapse`)** e deseje trocar **50 pacotes de `[N01]` Leite em Pó Integral Instantâneo (`milk_powder_whole_400g`, `400 g` cada)** por **`[T01]` Alicate Multiferramenta Dobrável em Aço Inoxidável Temperado (`multitool_pliers_stainless_folding_unit`, `1 un`, Indivisível)**:
 
 1. **Passo 1 (Seu Crédito):**
-   - Score impresso na Coluna Colapso Agudo de `milk_powder_whole_400g` (*Leite em Pó Integral, Pacote 400 g*) = `33.564,72 pts` por pacote (`MEC 2,36x`).
+   - Score impresso na Coluna Colapso Agudo de `[N01] milk_powder_whole_400g` (*Leite em Pó Integral, Pacote 400 g*) = `33.564,72 pts` por pacote (`MEC 2,36x`).
    - Multiplique por `50` pacotes: $33.564,72 \times 50 = \mathbf{1.678.236,00\text{ pts}}$.
 2. **Passo 2 (Valor do Item Desejado):**
-   - Score impresso na Coluna Colapso Agudo de `multitool_pliers_stainless_folding_unit` (*Alicate Multiferramenta Dobrável em Aço Inox, 1 un*) = `672.683,44 pts` por unidade (`MEC 1,10x`).
+   - Score impresso na Coluna Colapso Agudo de `[T01] multitool_pliers_stainless_folding_unit` (*Alicate Multiferramenta Dobrável em Aço Inox, 1 un*) = `672.683,44 pts` por unidade (`MEC 1,10x`).
 3. **Passo 3 (Divisão e Liquidação com Troco Exato):**
    - Divida o Total Ofertado pelo Score do Alicate: $1.678.236,00 \div 672.683,44 = \mathbf{2,495\text{ unidades}}$.
    - Como um alicate de aço é **Indivisível (`Indivisível · 1 un`)**, não é possível fraccionar `0,495` de uma ferramenta sem destruí-la.
-   - Você recebe **2 unidades inteiras do Alicate Multiferramenta** ($2 \times 672.683,44 = 1.345.366,88\text{ pts}$).
+   - Você recebe **2 unidades inteiras do `[T01]` Alicate Multiferramenta** ($2 \times 672.683,44 = 1.345.366,88\text{ pts}$).
    - **Saldo de Troco Devido a Você:** $1.678.236,00 - 1.345.366,88 = \mathbf{332.869,12\text{ pts}}$.
-   - Divida `332.869,12 pts` pela taxa de `1 g` do *Sal Refinado Iodado* no Colapso Agudo (`salt_sodium_chloride_iodized_1000g` = `158,935 pts/g`) para exigir **`2.094 g` de Sal Refinado Iodado** (ou divida pelo *Açúcar Cristal* `sugar_sucrose_crystal_1000g` a `15,525 pts/g` = **`21.440 g` de Açúcar Cristal**) como troco, fechando a operação com **0% de perda financeira**.
+   - Divida `332.869,12 pts` pela taxa de `1 g` do `[C01]` *Sal Refinado Iodado* no Colapso Agudo (`salt_sodium_chloride_iodized_1000g` = `158,935 pts/g`) para exigir **`2.094 g` de `[C01]` Sal Refinado Iodado** (ou divida pelo `[C02]` *Açúcar Cristal* `sugar_sucrose_crystal_1000g` a `15,525 pts/g` = **`21.440 g` de `[C02]` Açúcar Cristal**) como troco, fechando a operação com **0% de perda financeira**.
 
 ---
 
@@ -95,17 +95,17 @@ Para itens de longa vida útil (`1 a 5 anos`) que ainda possuem mais de 90 dias 
 
 Os 128 itens padronizados em `data/items_core.js` (`100` mercadorias físicas + `28` serviços humanos essenciais) estão estruturados em **9 Categorias Canônicas**. Ao transitar entre fases de crise, você pode utilizar a folha impressa específica daquele cenário ou aplicar mentalmente o comportamento de cada grupo:
 
-| Slug da Categoria | Nome Oficial da Categoria (`pt-BR`) | Papel Físico e Funcional | Comportamento nas Fases de Crise (`MEC`) |
+| Slug da Categoria (`short_code`) | Nome Oficial da Categoria (`pt-BR`) | Papel Físico e Funcional | Comportamento nas Fases de Crise (`MEC`) |
 | :--- | :--- | :--- | :--- |
-| `cat_staple_foods` | **Alimentos de Base, Grãos, Leguminosas e Gorduras** | Base calórica de sobrevivência (`kcal`), proteínas vegetais e lipídios de cocção (`1000 g` / `500 ml`). | Demanda elevada e constante (`1,2x–1,35x` no colapso agudo; `1,0x–1,1x` na reconstrução). |
-| `cat_critical_nutrition` | **Nutrição Crítica, Prontos para Consumo e Suporte Clínico** | Rações de preparo zero (`CP = 1,0`), proteínas enlatadas, fórmula infantil e polivitamínicos. | Prêmio de `1,4x` no colapso agudo quando há escassez de combustível ou água para cozinhar. |
-| `cat_spices_morale` | **Conservantes, Açúcares, Especiarias e Moral** | Cloreto de sódio (*sal iodado*), sacarose, mel, café torrado, chá, cacau e destilados. | Sal e açúcar atuam como **moeda universal de troco divisível (`g`)**; itens de moral sobem sob estresse de cerco. |
-| `cat_pharma_essential` | **Fármacos Essenciais (OMS EML / DCB-ANVISA)** | Antibióticos sistêmicos, analgésicos, sais de reidratação oral (SRO), antiparasitários e uso contínuo. | Multiplicador máximo de preservação da vida (`2,0x–2,2x`) no colapso agudo e em surtos infecciosos. |
-| `cat_trauma_hygiene` | **Controle de Trauma, Antissepsia, EPI e Higiene** | Torniquetes táticos, gaze estéril, álcool 70%/clorexidina, respiradores PFF2/N95, sabão e hipoclorito. | Itens de trauma e antissepsia saltam para `1,8x–2,2x` no colapso agudo; mantêm `1,2x` na recuperação. |
-| `cat_water_fire_shelter` | **Água, Purificação, Fogo, Iluminação e Abrigo** | Água potável lacrada, pastilhas de NaDCC, velas filtrantes, pederneiras de ferrocério, gás butano e lonas. | Água e purificação atingem o maior multiplicador vital (`2,5x`) em colapso agudo ou seca severa. |
-| `cat_tools_energy_comms` | **Ferramentas, Cordame, Energia Off-Grid e Comunicações** | Facas full-tang, alicates multiferramenta, paracord 550, pilhas IEC AA/AAA/18650, painel solar e rádio VHF/UHF. | Essenciais no colapso (`1,3x–1,5x`) e valorizam ainda mais (`1,6x–1,8x`) na reconstrução agrária e técnica. |
-| `cat_store_of_value` | **Reserva de Valor, Metais de Escambo e Acervo Técnico** | Prata e ouro fracionados (`.999`), sementes crioulas de polinização aberta, óculos de leitura e arquivos offline. | **Inversão Estrita de Fase:** Metais preciosos caem para **`0,01x`** em `acute_collapse` (não são comestíveis) e saltam para **`5,00x`** em `economic_reconstruction` com a retomada cambial e agrícola. |
-| `cat_essential_services` | **Serviços Humanos Essenciais, Procedimentos Clínicos, TI Off-Grid, Instrução e Mão de Obra Técnica** | Cirurgia de trauma, odontologia, obstetrícia, reparo WASH, revisão solar/mecânica, TI off-grid/microeletrônica, instrução/tradução técnica, metalurgia e vigilância (`Itens 101–128`). | Trauma, obstetrícia, odontologia, WASH e segurança saltam em `acute_collapse` (`até 2,21x`); TI off-grid, instrução técnica, engenharia elétrica/mecânica, metalurgia, construção e veterinária lideram em `economic_reconstruction` (`até 2,32x`). |
+| `cat_staple_foods` (**`F01–F20`**) | **Alimentos de Base, Grãos, Leguminosas e Gorduras** | Base calórica de sobrevivência (`kcal`), proteínas vegetais e lipídios de cocção (`1000 g` / `500 ml`). | Demanda elevada e constante (`1,2x–1,35x` no colapso agudo; `1,0x–1,1x` na reconstrução). |
+| `cat_critical_nutrition` (**`N01–N05`**) | **Nutrição Crítica, Prontos para Consumo e Suporte Clínico** | Rações de preparo zero (`CP = 1,0`), proteínas enlatadas, fórmula infantil e polivitamínicos. | Prêmio de `1,4x` no colapso agudo quando há escassez de combustível ou água para cozinhar. |
+| `cat_spices_morale` (**`C01–C15`**) | **Conservantes, Açúcares, Especiarias e Moral** | Cloreto de sódio (*sal iodado*), sacarose, mel, café torrado, chá, cacau e destilados. | Sal e açúcar atuam como **moeda universal de troco divisível (`g`)**; itens de moral sobem sob estresse de cerco. |
+| `cat_pharma_essential` (**`M01–M15`**) | **Fármacos Essenciais (OMS EML / DCB-ANVISA)** | Antibióticos sistêmicos, analgésicos, sais de reidratação oral (SRO), antiparasitários e uso contínuo. | Multiplicador máximo de preservação da vida (`2,0x–2,2x`) no colapso agudo e em surtos infecciosos. |
+| `cat_trauma_hygiene` (**`H01–H15`**) | **Controle de Trauma, Antissepsia, EPI e Higiene** | Torniquetes táticos, gaze estéril, álcool 70%/clorexidina, respiradores PFF2/N95, sabão e hipoclorito. | Itens de trauma e antissepsia saltam para `1,8x–2,2x` no colapso agudo; mantêm `1,2x` na recuperação. |
+| `cat_water_fire_shelter` (**`W01–W10`**) | **Água, Purificação, Fogo, Iluminação e Abrigo** | Água potável lacrada, pastilhas de NaDCC, velas filtrantes, pederneiras de ferrocério, gás butano e lonas. | Água e purificação atingem o maior multiplicador vital (`2,5x`) em colapso agudo ou seca severa. |
+| `cat_tools_energy_comms` (**`T01–T14`**) | **Ferramentas, Cordame, Energia Off-Grid e Comunicações** | Facas full-tang, alicates multiferramenta, paracord 550, pilhas IEC AA/AAA/18650, painel solar e rádio VHF/UHF. | Essenciais no colapso (`1,3x–1,5x`) e valorizam ainda mais (`1,6x–1,8x`) na reconstrução agrária e técnica. |
+| `cat_store_of_value` (**`V01–V06`**) | **Reserva de Valor, Metais de Escambo e Acervo Técnico** | Prata e ouro fracionados (`.999`), sementes crioulas de polinização aberta, óculos de leitura e arquivos offline. | **Inversão Estrita de Fase:** Metais preciosos caem para **`0,01x`** em `acute_collapse` (não são comestíveis) e saltam para **`5,00x`** em `economic_reconstruction` com a retomada cambial e agrícola. |
+| `cat_essential_services` (**`S01–S28`**) | **Serviços Humanos Essenciais, Procedimentos Clínicos, TI Off-Grid, Instrução e Mão de Obra Técnica** | Cirurgia de trauma, odontologia, obstetrícia, reparo WASH, revisão solar/mecânica, TI off-grid/microeletrônica, instrução/tradução técnica, metalurgia e vigilância (`Itens 101–128`). | Trauma, obstetrícia, odontologia, WASH e segurança saltam em `acute_collapse` (`até 2,21x`); TI off-grid, instrução técnica, engenharia elétrica/mecânica, metalurgia, construção e veterinária lideram em `economic_reconstruction` (`até 2,32x`). |
 
 ---
 
@@ -113,15 +113,15 @@ Os 128 itens padronizados em `data/items_core.js` (`100` mercadorias físicas + 
 
 Como a **Tabela Geral de Cotações** impressa exibe os 3 cenários lado a lado (**Coluna 8: Linha de Base Pura `1,0x`**, **Coluna 9: Colapso Agudo** e **Coluna 10: Reconstrução Econômica**), todas as células da tabela abaixo trazem os pontos pré-calculados para **`Col 8 Base | Col 9 Colapso | Col 10 Reconstrução`** nos 7 itens primários de troco:
 
-| Item Divisível / Unitário de Troco (`id`) | `1 g / 1 ml / 1 un` (**Col 8 \| 9 \| 10**) | `10 g / 10 ml` (**Col 8 \| 9 \| 10**) | `50 g / 50 ml` (**Col 8 \| 9 \| 10**) | `100 g / 100 ml` (**Col 8 \| 9 \| 10**) | `250 g / 250 ml` (**Col 8 \| 9 \| 10**) | `500 g / 500 ml` (**Col 8 \| 9 \| 10**) | `1000 g / 1000 ml` (**Col 8 \| 9 \| 10**) |
+| Item Divisível / Unitário de Troco (`[short_code]` e `id`) | `1 g / 1 ml / 1 un` (**Col 8 \| 9 \| 10**) | `10 g / 10 ml` (**Col 8 \| 9 \| 10**) | `50 g / 50 ml` (**Col 8 \| 9 \| 10**) | `100 g / 100 ml` (**Col 8 \| 9 \| 10**) | `250 g / 250 ml` (**Col 8 \| 9 \| 10**) | `500 g / 500 ml` (**Col 8 \| 9 \| 10**) | `1000 g / 1000 ml` (**Col 8 \| 9 \| 10**) |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Sal Refinado Iodado** (`salt_sodium_chloride_iodized_1000g`) | **`39,9 \| 158,9 \| 78,1`** | `399 \| 1589 \| 781` | `1994 \| 7947 \| 3904` | `3989 \| 15893 \| 7808` | `9972 \| 39734 \| 19519` | `19943 \| 79467 \| 39039` | `39886 \| 158935 \| 78077` |
-| **Açúcar Cristal Branco** (`sugar_sucrose_crystal_1000g`) | **`5,6 \| 15,5 \| 14,4`** | `56,4 \| 155 \| 144` | `282 \| 776 \| 718` | `564 \| 1553 \| 1436` | `1411 \| 3881 \| 3590` | `2821 \| 7763 \| 7180` | `5643 \| 15525 \| 14360` |
-| **Arroz Branco Polido Cru** (`rice_white_polished_raw_1000g`) | **`5,4 \| 8,8 \| 6,3`** | `54,5 \| 88,5 \| 62,6` | `272 \| 442 \| 313` | `545 \| 885 \| 626` | `1361 \| 2212 \| 1566` | `2723 \| 4425 \| 3131` | `5446 \| 8849 \| 6263` |
-| **Água Potável Selada** (`water_potable_sealed_1000ml`) | **`5,7 \| 16,5 \| 6,5`** | `56,8 \| 165 \| 65,3` | `284 \| 823 \| 326` | `568 \| 1646 \| 653` | `1419 \| 4115 \| 1632` | `2838 \| 8229 \| 3263` | `5675 \| 16458 \| 6527` |
-| **Álcool Etílico 70% Antisséptico** (`ethanol_antiseptic_70pct_100ml`) | **`984 \| 5305 \| 1082`** | `9835 \| 53050 \| 10819` | `49175 \| 265250 \| 54093` | `98350 \| 530500 \| 108185` | `245875 \| 1326250 \| 270463` | `491750 \| 2652500 \| 540925` | `983500 \| 5305001 \| 1081850` |
-| **Paracetamol 500 mg Comprimido** (`paracetamol_500mg_tablet`) | **`1 un: 108151 \| 204406 \| 129781`** | `2 un: 216302 \| 408811 \| 259563` | `3 un: 324453 \| 613217 \| 389344` | `5 un: 540756 \| 1022028 \| 648907` | `10 un: 1081512 \| 2044057 \| 1297814` | — | — |
-| **Pastilha NaDCC 67 mg (Água)** (`water_purification_nadcc_tablet_unit`) | **`1 un: 199818 \| 863214 \| 219800`** | `2 un: 399636 \| 1726428 \| 439600` | `3 un: 599454 \| 2589642 \| 659400` | `5 un: 999090 \| 4316071 \| 1098999` | `10 un: 1998181 \| 8632141 \| 2197999` | — | — |
+| **`[C01]` Sal Refinado Iodado** (`salt_sodium_chloride_iodized_1000g`) | **`39,9 \| 158,9 \| 78,1`** | `399 \| 1589 \| 781` | `1994 \| 7947 \| 3904` | `3989 \| 15893 \| 7808` | `9972 \| 39734 \| 19519` | `19943 \| 79467 \| 39039` | `39886 \| 158935 \| 78077` |
+| **`[C02]` Açúcar Cristal Branco** (`sugar_sucrose_crystal_1000g`) | **`5,6 \| 15,5 \| 14,4`** | `56,4 \| 155 \| 144` | `282 \| 776 \| 718` | `564 \| 1553 \| 1436` | `1411 \| 3881 \| 3590` | `2821 \| 7763 \| 7180` | `5643 \| 15525 \| 14360` |
+| **`[F01]` Arroz Branco Polido Cru** (`rice_white_polished_raw_1000g`) | **`5,4 \| 8,8 \| 6,3`** | `54,5 \| 88,5 \| 62,6` | `272 \| 442 \| 313` | `545 \| 885 \| 626` | `1361 \| 2212 \| 1566` | `2723 \| 4425 \| 3131` | `5446 \| 8849 \| 6263` |
+| **`[W01]` Água Potável Selada** (`water_potable_sealed_1000ml`) | **`5,7 \| 16,5 \| 6,5`** | `56,8 \| 165 \| 65,3` | `284 \| 823 \| 326` | `568 \| 1646 \| 653` | `1419 \| 4115 \| 1632` | `2838 \| 8229 \| 3263` | `5675 \| 16458 \| 6527` |
+| **`[H01]` Álcool Etílico 70% Antisséptico** (`ethanol_antiseptic_70pct_100ml`) | **`984 \| 5305 \| 1082`** | `9835 \| 53050 \| 10819` | `49175 \| 265250 \| 54093` | `98350 \| 530500 \| 108185` | `245875 \| 1326250 \| 270463` | `491750 \| 2652500 \| 540925` | `983500 \| 5305001 \| 1081850` |
+| **`[M04]` Paracetamol 500 mg Comprimido** (`paracetamol_500mg_tablet`) | **`1 un: 108151 \| 204406 \| 129781`** | `2 un: 216302 \| 408811 \| 259563` | `3 un: 324453 \| 613217 \| 389344` | `5 un: 540756 \| 1022028 \| 648907` | `10 un: 1081512 \| 2044057 \| 1297814` | — | — |
+| **`[W02]` Pastilha NaDCC 67 mg (Água)** (`water_purification_nadcc_tablet_unit`) | **`1 un: 199818 \| 863214 \| 219800`** | `2 un: 399636 \| 1726428 \| 439600` | `3 un: 599454 \| 2589642 \| 659400` | `5 un: 999090 \| 4316071 \| 1098999` | `10 un: 1998181 \| 8632141 \| 2197999` | — | — |
 
 ---
 
